@@ -1,0 +1,123 @@
+.workspace {
+  display: grid;
+  gap: var(--spacing-6);
+  min-width: 0;
+  margin: var(--spacing-4) 0;
+  color: var(--foreground);
+  font-family: var(--font-family-base);
+  font-size: var(--text-body-size);
+}
+.workspace button {
+  font-size: var(--text-secondary-size);
+  font-weight: 500;
+}
+.header, .sectionHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: var(--spacing-4);
+}
+.header h2 {
+  margin: 0;
+  font-size: var(--text-page-size);
+  font-weight: 700;
+}
+.header p, .sectionHeader p, .search p {
+  margin: var(--spacing-1) 0 0;
+  color: var(--muted-foreground);
+}
+.header .eyebrow {
+  margin: 0 0 var(--spacing-1);
+  color: var(--foreground);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+}
+.period {
+  display: grid;
+  gap: var(--spacing-2);
+  min-width: 11rem;
+  font-size: var(--text-body-size);
+  font-weight: 600;
+}
+.metrics {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 11.5rem), 1fr));
+  gap: var(--card-gap);
+}
+.metric {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--card-gap);
+  min-width: 0;
+  padding: var(--card-padding);
+  border-radius: var(--radius-md);
+  background: var(--card);
+  box-shadow: var(--shadow);
+}
+.metricAttention {
+  background: color-mix(in srgb, var(--primary) 9%, var(--card));
+}
+.metric p, .metric small { margin: 0; }
+.metric p { font-size: var(--text-body-size); font-weight: 600; }
+.metric strong {
+  font-size: var(--text-stat-size);
+  font-weight: var(--text-stat-weight);
+  font-variant-numeric: tabular-nums;
+  line-height: 1.2;
+  overflow-wrap: anywhere;
+}
+.metric small { color: var(--muted-foreground); font-size: var(--text-secondary-size); }
+.panel {
+  display: grid;
+  gap: var(--card-gap);
+  min-width: 0;
+  padding: var(--card-padding);
+  border-radius: var(--radius-md);
+  background: var(--card);
+  box-shadow: var(--shadow);
+}
+.sectionHeader h3 { margin: 0; font-size: var(--text-section-size); font-weight: 600; }
+.searches { display: grid; gap: var(--card-gap); }
+.search {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: var(--spacing-3);
+  padding: var(--card-padding);
+  border-radius: var(--radius);
+  background: var(--surface);
+}
+.search strong { overflow-wrap: anywhere; }
+.searchFacts {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: var(--spacing-2) var(--spacing-4);
+  font-size: var(--text-secondary-size);
+  font-variant-numeric: tabular-nums;
+}
+.empty, .refreshing { margin: 0; color: var(--muted-foreground); font-size: var(--text-secondary-size); }
+.error {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: var(--spacing-3);
+  padding: var(--spacing-4);
+  border-radius: var(--radius);
+  background: color-mix(in srgb, var(--error) 8%, var(--card));
+}
+.error p { margin: 0; }
+.loading { display: grid; gap: var(--spacing-4); }
+.skeletonTitle { width: 15rem; height: 2rem; }
+.skeletonMetric { height: 8rem; }
+.skeletonSection { height: 12rem; }
+@media (max-width: 600px) {
+  .workspace { gap: var(--spacing-4); }
+  .header, .period { width: 100%; }
+  .panel { padding: var(--card-padding); }
+  .metric { padding: var(--card-padding); }
+}

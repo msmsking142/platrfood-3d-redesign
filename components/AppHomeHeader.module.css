@@ -1,0 +1,470 @@
+@layer base {
+  .header {
+    box-sizing: border-box;
+    width: 100vw;
+    margin-inline: calc(50% - 50vw);
+    padding: calc(var(--safe-area-inset-top, 0px) + var(--spacing-4))
+      max(var(--spacing-4), var(--safe-area-inset-right, 0px))
+      var(--spacing-4)
+      max(var(--spacing-4), var(--safe-area-inset-left, 0px));
+    background: #FFC400;
+    color: #111111;
+  }
+
+  .headerInner {
+    display: grid;
+    gap: var(--spacing-4);
+    width: 100%;
+    max-width: 56rem;
+    margin-inline: auto;
+  }
+
+  .topRow {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--spacing-3);
+    min-width: 0;
+  }
+
+  .locationButton {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--spacing-2);
+    min-width: 0;
+    flex: 1;
+    padding: var(--spacing-1) 0;
+    border: 0;
+    background: transparent;
+    color: inherit;
+    text-align: left;
+    cursor: pointer;
+  }
+
+  .locationButton:focus-visible,
+  .walletButton:focus-visible,
+  .profileButton:focus-visible,
+  .vegSwitch:focus-visible,
+  .currentRow:focus-visible,
+  .addressRow:focus-visible,
+  .manageLink:focus-visible {
+    outline: none;
+    box-shadow: var(--shadow-focus);
+  }
+
+  .locationIcon {
+    width: 1.375rem;
+    height: 1.375rem;
+    flex: none;
+    margin-top: var(--spacing-1);
+    color: var(--primary);
+  }
+
+  .locationCopy {
+    display: grid;
+    gap: 2px;
+    min-width: 0;
+  }
+
+  .locationTitleRow {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-1);
+    min-width: 0;
+  }
+
+  .locationTitle {
+    overflow: hidden;
+    font-size: var(--text-section-size);
+    font-weight: 700;
+    line-height: var(--text-section-line);
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .chevron {
+    width: 1rem;
+    height: 1rem;
+    flex: none;
+    color: var(--primary);
+  }
+
+  .locationLine {
+    overflow: hidden;
+    color: #333333;
+    font-size: var(--text-caption-size);
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .accountActions {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-2);
+    flex: none;
+  }
+
+  .walletButton {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--spacing-2);
+    min-height: var(--control-height);
+    padding: 0 var(--spacing-3);
+    border: 1px solid rgba(17, 17, 17, 0.18);
+    border-radius: var(--radius-full);
+    background: rgba(255, 255, 255, 0.72);
+    color: #111111;
+    font-size: var(--text-button-sm-size);
+    font-weight: 600;
+    text-decoration: none;
+    white-space: nowrap;
+  }
+
+  .walletButton:hover {
+    background: rgba(255, 255, 255, 0.92);
+  }
+
+  .walletIcon {
+    width: 1rem;
+    height: 1rem;
+    color: var(--primary);
+  }
+
+  .walletText {
+    font-variant-numeric: tabular-nums;
+  }
+
+  .profileButton {
+    display: grid;
+    place-items: center;
+    overflow: hidden;
+    width: var(--control-height);
+    height: var(--control-height);
+    flex: none;
+    border: 2px solid var(--primary);
+    border-radius: var(--radius-full);
+    background: var(--card);
+    color: var(--secondary);
+    text-decoration: none;
+  }
+
+  .profileButton:hover {
+    border-color: var(--card);
+  }
+
+  .avatarImage {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .avatarInitial {
+    font-size: var(--text-title-size);
+    font-weight: 700;
+  }
+
+  .profileIcon {
+    width: 1.2rem;
+    height: 1.2rem;
+  }
+
+  .walletSkeleton {
+    width: 5.5rem;
+    height: var(--control-height);
+    border-radius: var(--radius-full);
+  }
+
+  .profileSkeleton {
+    width: var(--control-height);
+    height: var(--control-height);
+    border-radius: var(--radius-full);
+  }
+
+  .balanceSkeleton {
+    width: 2.75rem;
+    height: 0.875rem;
+  }
+
+  .searchBar {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-3);
+    min-width: 0;
+    min-height: 3.75rem;
+    padding: var(--spacing-2) var(--spacing-3);
+    border-radius: var(--radius-md);
+    background: var(--card);
+    color: var(--foreground);
+    box-shadow: var(--shadow-md);
+  }
+
+  .searchBar:focus-within {
+    box-shadow: var(--shadow-focus);
+  }
+
+  .searchIcon {
+    width: 1.25rem;
+    height: 1.25rem;
+    flex: none;
+    color: var(--muted-foreground);
+  }
+
+  .searchInput {
+    width: 100%;
+    min-width: 0;
+    flex: 1;
+    padding: var(--spacing-2) 0;
+    border: 0;
+    outline: 0;
+    background: transparent;
+    color: var(--foreground);
+    font: inherit;
+    font-size: var(--text-body-size);
+  }
+
+  .searchInput::placeholder {
+    color: var(--muted-foreground);
+    opacity: 1;
+  }
+
+  .vegControl {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-2);
+    flex: none;
+    padding-left: var(--spacing-3);
+    border-left: 1px solid var(--border);
+  }
+
+  .vegLabel {
+    display: grid;
+    color: var(--foreground);
+    font-size: 0.625rem;
+    font-weight: 700;
+    line-height: 1.05;
+    letter-spacing: 0.02em;
+  }
+
+  .vegSwitch {
+    display: flex;
+    align-items: center;
+    width: 2.5rem;
+    height: 1.5rem;
+    padding: 2px;
+    border: 0;
+    border-radius: var(--radius-full);
+    background: var(--muted-foreground);
+    cursor: pointer;
+    transition: background var(--animation-duration-normal) ease;
+  }
+
+  .vegSwitchOn {
+    background: var(--success);
+  }
+
+  .vegSwitch:disabled {
+    cursor: wait;
+    opacity: 0.6;
+  }
+
+  .vegKnob {
+    width: 1.25rem;
+    height: 1.25rem;
+    border-radius: var(--radius-full);
+    background: var(--card);
+    box-shadow: var(--shadow);
+    transition: transform var(--animation-duration-normal)
+      var(--animation-easing);
+  }
+
+  .vegSwitchOn .vegKnob {
+    transform: translateX(1rem);
+  }
+
+  .sheetContent {
+    box-sizing: border-box;
+    height: auto;
+    max-height: min(80dvh, 35rem);
+    gap: var(--spacing-4);
+    padding: var(--spacing-6) var(--spacing-4)
+      max(var(--spacing-6), var(--safe-area-inset-bottom, 0px));
+  }
+
+  .sheetHeader {
+    flex: none;
+  }
+
+  .sheetBody {
+    display: grid;
+    gap: var(--spacing-6);
+    overflow-y: auto;
+  }
+
+  .currentRow,
+  .addressRow {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-3);
+    width: 100%;
+    min-height: 4rem;
+    padding: var(--spacing-3);
+    border: 0;
+    border-radius: var(--radius);
+    background: var(--surface);
+    color: var(--foreground);
+    text-align: left;
+    cursor: pointer;
+  }
+
+  .currentRow:hover,
+  .addressRow:hover {
+    background: var(--muted);
+  }
+
+  .currentRow:disabled {
+    cursor: wait;
+    opacity: 0.7;
+  }
+
+  .rowIcon {
+    display: grid;
+    place-items: center;
+    width: 2.25rem;
+    height: 2.25rem;
+    flex: none;
+    border-radius: var(--radius-full);
+    background: var(--card);
+    color: var(--foreground);
+  }
+
+  .rowIcon svg {
+    width: 1.125rem;
+    height: 1.125rem;
+  }
+
+  .rowCopy {
+    display: grid;
+    gap: var(--spacing-1);
+    min-width: 0;
+    flex: 1;
+  }
+
+  .rowCopy strong {
+    overflow: hidden;
+    font-size: var(--text-title-size);
+    font-weight: 700;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .rowCopy span {
+    overflow: hidden;
+    color: var(--muted-foreground);
+    font-size: var(--text-secondary-size);
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .selectedIcon {
+    width: 1.125rem;
+    height: 1.125rem;
+    flex: none;
+    color: var(--success);
+  }
+
+  .addressSection {
+    display: grid;
+    gap: var(--spacing-3);
+  }
+
+  .sectionTitle {
+    margin: 0;
+    font-size: var(--text-section-size);
+    font-weight: 700;
+  }
+
+  .addressList,
+  .skeletonList {
+    display: grid;
+    gap: var(--spacing-2);
+  }
+
+  .addressRow {
+    background: var(--card);
+    border: 1px solid var(--border);
+  }
+
+  .addressRowSelected {
+    background: color-mix(in srgb, var(--success) 8%, var(--card));
+    border-color: color-mix(in srgb, var(--success) 40%, var(--border));
+  }
+
+  .addressSkeleton {
+    height: 4rem;
+  }
+
+  .errorMessage,
+  .emptyMessage {
+    margin: 0;
+    padding: var(--spacing-3) 0;
+    color: var(--muted-foreground);
+    font-size: var(--text-body-size);
+  }
+
+  .errorMessage {
+    color: var(--error);
+  }
+
+  .manageLink {
+    justify-self: start;
+    padding: var(--spacing-2) 0;
+    color: var(--foreground);
+    font-size: var(--text-body-size);
+    font-weight: 600;
+    text-underline-offset: 3px;
+  }
+
+  .customerHeader {
+    background: rgba(14, 17, 22, 0.9);
+    backdrop-filter: var(--glass-blur);
+    color: #FFFFFF;
+  }
+
+  .customerHeader .locationIcon,
+  .customerHeader .chevron { color: var(--mint); }
+
+  .customerHeader .locationLine { color: #AAB3BF; }
+
+  .customerHeader .walletButton {
+    border-color: rgba(255, 255, 255, 0.08);
+    background: rgba(255, 255, 255, 0.08);
+    color: var(--mint);
+  }
+
+  .customerHeader .walletButton:hover {
+    background: rgba(255, 255, 255, 0.12);
+  }
+
+  .customerHeader .walletIcon { color: var(--mint); }
+
+  @media (max-width: 390px) {
+    .topRow {
+      gap: var(--spacing-2);
+    }
+
+    .walletButton {
+      gap: var(--spacing-1);
+      padding-inline: var(--spacing-2);
+    }
+
+    .searchBar {
+      gap: var(--spacing-2);
+    }
+
+    .vegControl {
+      gap: var(--spacing-1);
+      padding-left: var(--spacing-2);
+    }
+  }
+}

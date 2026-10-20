@@ -1,0 +1,70 @@
+.card {
+  --merchant-yellow: #FFC400;
+  --merchant-black: #111111;
+  --merchant-green: #28A745;
+  --merchant-red: #DC3545;
+  display: grid;
+  gap: var(--card-gap);
+  min-width: 0;
+  padding: var(--card-padding);
+  border-radius: 1rem;
+  background: var(--card);
+  box-shadow: var(--shadow);
+}
+.newOrder { box-shadow: inset 0 0 0 2px var(--merchant-yellow), var(--shadow); }
+.heading { display: flex; align-items: center; justify-content: space-between; gap: var(--spacing-2); min-width: 0; }
+.heading > div { display: grid; gap: var(--spacing-1); min-width: 0; }
+.heading strong { font-size: var(--text-title-size); font-weight: 500; color: var(--merchant-black); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.heading small, .footer small { color: var(--muted-foreground); font-size: var(--text-caption-size); font-weight: 400; }
+.id { flex-shrink: 0; padding: var(--spacing-1) var(--spacing-3); border-radius: var(--radius-full); background: var(--merchant-yellow); color: var(--merchant-black); font-size: 0.8rem; font-weight: 700; }
+.items { display: grid; gap: var(--spacing-2); margin: 0; padding: 0; list-style: none; }
+.items li, .compactTotal { display: flex; justify-content: space-between; gap: var(--spacing-3); min-width: 0; }
+.items li strong { min-width: 0; font-size: var(--text-title-size); font-weight: 500; overflow-wrap: anywhere; }
+.items li span { font-size: var(--text-price-size); font-weight: 600; }
+.items li span, .compactTotal strong { white-space: nowrap; }
+.compactTotal { align-items: flex-start; font-size: 0.875rem; }
+.compactTotal span { min-width: 0; overflow-wrap: anywhere; color: var(--muted-foreground); }
+.compactTotal strong { font-size: var(--text-price-size); font-weight: 600; }
+.note, .rider { display: flex; align-items: flex-start; gap: var(--spacing-2); margin: 0; font-size: 0.875rem; }
+.note { padding: var(--spacing-3); border-radius: var(--radius); background: var(--gold-soft); }
+.note svg, .rider svg { flex-shrink: 0; }
+.urgency { display: flex; flex-direction: column; align-items: center; gap: var(--spacing-2); text-align: center; font-size: var(--text-section-size); }
+.urgencyIcon { display: grid; place-items: center; width: 3.5rem; height: 3.5rem; border: 2px dashed var(--merchant-red); border-radius: var(--radius-full); color: var(--merchant-red); }
+.urgency em, .overdue { color: var(--merchant-red); font-style: normal; }
+.prepStatus { display: flex; align-items: center; gap: var(--spacing-2); color: var(--merchant-green); }
+.progress { width: 100%; height: 0.6rem; border: 0; border-radius: var(--radius-full); overflow: hidden; accent-color: var(--merchant-green); }
+.progress::-webkit-progress-bar { background: var(--muted); border-radius: var(--radius-full); }
+.progress::-webkit-progress-value { background: var(--merchant-green); border-radius: var(--radius-full); }
+.progress::-moz-progress-bar { background: var(--merchant-green); border-radius: var(--radius-full); }
+.map { margin-top: var(--spacing-3); }
+.readyText { margin: 0; font-weight: 600; }
+.riskNote, .failureNote {
+  margin: 0;
+  padding: var(--spacing-3);
+  border-radius: var(--radius);
+  background: var(--gold-soft);
+  color: var(--foreground);
+  font-size: 0.8125rem;
+  font-weight: 600;
+}
+.actions { display: flex; align-items: stretch; gap: var(--spacing-2); min-width: 0; }
+.actions > * { flex: 1 1 0; min-width: 0; min-height: var(--control-height); font-size: var(--text-button-sm-size); font-weight: 500; }
+.calls { display: flex; flex-wrap: wrap; align-items: center; gap: var(--spacing-2); }
+.calls > small { color: var(--muted-foreground); }
+.footer { display: grid; justify-items: start; gap: var(--spacing-2); padding-top: var(--spacing-3); border-top: 1px solid var(--border); }
+
+@media (max-width: 760px) {
+  .card { gap: var(--card-gap); padding: var(--card-padding); font-size: var(--text-body-size); }
+  .heading strong { font-size: var(--text-title-size); }
+  .heading small, .footer small, .calls > small { font-size: 0.72rem; }
+  .id { font-size: 0.7rem; }
+  .items { font-size: var(--text-body-size); font-weight: 400; }
+  .items li span { font-weight: 500; }
+  .note { font-size: 0.82rem; }
+  .urgency { font-size: var(--text-section-size); }
+  .urgencyIcon { width: 2.5rem; height: 2.5rem; }
+  .urgencyIcon svg { width: 1.125rem; height: 1.125rem; }
+  .prepStatus { font-size: 0.9rem; }
+  .rider { font-size: 0.8rem; }
+  .actions button { min-height: var(--control-height); font-size: var(--text-button-sm-size); }
+}

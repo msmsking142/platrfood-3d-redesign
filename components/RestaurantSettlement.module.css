@@ -1,0 +1,30 @@
+.settlement {
+  display: grid;
+  gap: var(--spacing-2);
+  font-size: 0.88rem;
+}
+
+.compact {
+  font-size: 0.78rem;
+}
+
+.row {
+  display: flex;
+  justify-content: space-between;
+  gap: var(--spacing-3);
+}
+
+.row > :last-child {
+  flex-shrink: 0;
+  font-variant-numeric: tabular-nums;
+}
+
+.net {
+  padding-top: var(--spacing-2);
+  color: var(--success);
+}
+
+.footnote {
+  color: var(--muted-foreground);
+  line-height: 1.5;
+}

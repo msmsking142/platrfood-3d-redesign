@@ -1,0 +1,441 @@
+.cart {
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+  gap: var(--card-gap);
+  color: var(--foreground);
+  font-family: var(--font-family-base);
+}
+
+.sheet {
+  min-height: 100dvh;
+  padding: var(--spacing-4) var(--spacing-3) 0;
+  background: var(--card);
+}
+
+.panel {
+  padding: var(--card-padding);
+  border-radius: var(--radius);
+  background: var(--card);
+  box-shadow: var(--shadow-md);
+}
+
+.heading {
+  margin: 0;
+  font-size: var(--text-section-size);
+  font-weight: var(--text-section-weight);
+  line-height: 1.25;
+}
+
+.address {
+  display: flex;
+  width: 100%;
+  min-height: var(--control-height-lg);
+  align-items: center;
+  gap: var(--spacing-3);
+  padding: var(--spacing-3);
+  border: 0;
+  border-radius: var(--radius);
+  background: var(--surface);
+  color: var(--foreground);
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+  transition: background-color var(--animation-duration-normal) var(--animation-easing);
+}
+
+.address:hover {
+  background: var(--muted);
+}
+
+.address:focus-visible,
+.stepper button:focus-visible,
+.payButton:focus-visible {
+  outline: 3px solid var(--primary);
+  outline-offset: 2px;
+}
+
+.addressIcon {
+  display: grid;
+  width: 38px;
+  height: 38px;
+  flex: none;
+  place-items: center;
+  border-radius: var(--radius-full);
+  background: var(--card);
+}
+
+.addressCopy {
+  display: flex;
+  min-width: 0;
+  flex: 1;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.addressCopy strong {
+  font-size: var(--text-body-size);
+  font-weight: 500;
+}
+
+.addressSubtitle {
+  display: -webkit-box;
+  overflow: hidden;
+  color: var(--muted-foreground);
+  font-size: var(--text-caption-size);
+  line-height: 1.5;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+}
+
+.chevron {
+  flex: none;
+}
+
+.items {
+  display: flex;
+  flex-direction: column;
+}
+
+.item {
+  display: flex;
+  min-width: 0;
+  align-items: center;
+  gap: var(--spacing-3);
+  padding: var(--spacing-3) 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.thumbnail,
+.thumbnailFallback {
+  display: grid;
+  width: 3.5rem;
+  height: 3.5rem;
+  flex: none;
+  place-items: center;
+  border-radius: var(--radius-sm);
+}
+
+.thumbnail {
+  object-fit: cover;
+}
+
+.thumbnailFallback {
+  background: var(--gold-soft);
+  color: var(--foreground);
+}
+
+.itemInfo {
+  display: flex;
+  min-width: 0;
+  flex: 1;
+  flex-direction: column;
+  gap: var(--spacing-1);
+}
+
+.itemName {
+  display: flex;
+  min-width: 0;
+  align-items: flex-start;
+  gap: var(--spacing-2);
+  font-size: var(--text-title-size);
+  line-height: var(--text-title-line);
+}
+
+.itemName strong {
+  display: -webkit-box;
+  min-width: 0;
+  overflow: hidden;
+  font-weight: 500;
+  overflow-wrap: anywhere;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+}
+
+.veg,
+.nonVeg {
+  position: relative;
+  width: 13px;
+  height: 13px;
+  flex: none;
+  margin-top: 2px;
+  border: 1px solid currentColor;
+  border-radius: 3px;
+}
+
+.veg {
+  color: var(--success);
+}
+
+.nonVeg {
+  color: var(--accent);
+}
+
+.veg::after,
+.nonVeg::after {
+  position: absolute;
+  inset: 3px;
+  border-radius: var(--radius-full);
+  background: currentColor;
+  content: "";
+}
+
+.itemDetail {
+  color: var(--muted-foreground);
+  font-size: var(--text-secondary-size);
+  font-variant-numeric: tabular-nums;
+}
+
+.stepper {
+  display: flex;
+  flex: none;
+  align-items: center;
+  gap: var(--spacing-2);
+}
+
+.stepper button {
+  display: grid;
+  width: 2rem;
+  height: 2rem;
+  place-items: center;
+  border: 0;
+  border-radius: var(--radius-full);
+  color: var(--foreground);
+  cursor: pointer;
+}
+
+.stepper button:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+.decrease {
+  background: var(--surface);
+}
+
+.increase {
+  background: var(--primary);
+}
+
+.quantity {
+  min-width: 1ch;
+  text-align: center;
+  font-size: var(--text-secondary-size);
+  font-weight: 500;
+  font-variant-numeric: tabular-nums;
+}
+
+.pricingNote {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--spacing-3);
+  padding: var(--card-padding);
+  border-radius: var(--radius);
+  background: var(--gold-soft);
+}
+
+.pricingIcon {
+  display: grid;
+  width: 40px;
+  height: 40px;
+  flex: none;
+  place-items: center;
+  border-radius: var(--radius);
+  background: var(--primary);
+}
+
+.pricingNote strong {
+  font-size: var(--text-body-size);
+  font-weight: 500;
+}
+
+.pricingNote p {
+  margin: var(--spacing-1) 0 0;
+  font-size: var(--text-secondary-size);
+  line-height: 1.5;
+}
+
+.bill {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-3);
+  padding-top: var(--spacing-3);
+  border-top: 1px dotted var(--border);
+}
+
+.payArea {
+  padding: var(--spacing-4) 0;
+}
+
+.sheet .payArea {
+  position: sticky;
+  bottom: 0;
+  margin-top: auto;
+  padding-bottom: calc(var(--spacing-4) + var(--safe-area-inset-bottom, 0px));
+  background: var(--card);
+}
+
+.payButton {
+  position: relative;
+  display: flex;
+  width: 100%;
+  min-height: var(--control-height-lg);
+  align-items: center;
+  justify-content: center;
+  padding: var(--spacing-3) 76px var(--spacing-3) var(--spacing-5, 1.25rem);
+  border: 0;
+  border-radius: var(--radius-full);
+  background: var(--secondary);
+  color: var(--card);
+  font: inherit;
+  cursor: pointer;
+  transition:
+    transform var(--animation-duration-fast) var(--animation-easing),
+    opacity var(--animation-duration-fast) var(--animation-easing);
+}
+
+.payButton:active:not(:disabled) {
+  transform: scale(0.98);
+}
+
+.payButton:disabled {
+  opacity: 0.48;
+  cursor: not-allowed;
+}
+
+.payText {
+  font-size: var(--text-button-size);
+  font-weight: var(--text-button-weight);
+  line-height: 1.3;
+  text-align: center;
+}
+
+.payAmount {
+  color: var(--primary);
+  font-variant-numeric: tabular-nums;
+}
+
+.cartImage {
+  position: absolute;
+  top: -0.75rem;
+  right: var(--spacing-3);
+  width: 3.625rem;
+  height: 3.625rem;
+  object-fit: contain;
+  pointer-events: none;
+}
+
+.empty {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--spacing-3);
+  padding: var(--spacing-12) var(--spacing-4);
+  color: var(--muted-foreground);
+  text-align: center;
+}
+
+.empty h3 {
+  margin: 0;
+  color: var(--foreground);
+  font-size: var(--text-section-size);
+  font-weight: var(--text-section-weight);
+}
+
+.empty p {
+  max-width: 25ch;
+  margin: 0;
+  font-size: var(--text-body-size);
+}
+
+@media (max-width: 390px) {
+  .panel {
+    padding: var(--card-padding);
+  }
+
+  .item {
+    gap: var(--spacing-2);
+  }
+
+  .stepper {
+    gap: var(--spacing-1);
+  }
+
+  .item {
+    flex-wrap: wrap;
+  }
+
+  .itemInfo {
+    flex-basis: 0;
+  }
+
+  .payButton {
+    padding-left: var(--spacing-3);
+    padding-right: 4.5rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .address,
+  .payButton {
+    transition: none;
+  }
+}
+
+[class~="platr-dark"] .panel {
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.08), var(--shadow-md);
+}
+
+[class~="platr-dark"] .address {
+  background: rgba(110, 231, 183, 0.12);
+}
+
+[class~="platr-dark"] .address:hover {
+  background: rgba(110, 231, 183, 0.18);
+}
+
+[class~="platr-dark"] .addressIcon,
+[class~="platr-dark"] .chevron {
+  color: var(--mint);
+}
+
+[class~="platr-dark"] .thumbnailFallback {
+  background: var(--surface);
+  color: var(--primary);
+}
+
+[class~="platr-dark"] .veg {
+  color: var(--mint);
+}
+
+[class~="platr-dark"] .nonVeg {
+  color: var(--error);
+}
+
+[class~="platr-dark"] .decrease {
+  background: var(--muted);
+}
+
+[class~="platr-dark"] .increase {
+  color: var(--primary-foreground);
+}
+
+[class~="platr-dark"] .pricingNote {
+  background: rgba(255, 196, 0, 0.12);
+}
+
+[class~="platr-dark"] .pricingIcon {
+  color: var(--primary-foreground);
+}
+
+[class~="platr-dark"] .payButton {
+  background: var(--primary);
+  color: var(--primary-foreground);
+  box-shadow: 0 0 1.5rem rgba(255, 196, 0, 0.2);
+}
+
+[class~="platr-dark"] .payAmount {
+  color: var(--primary-foreground);
+}

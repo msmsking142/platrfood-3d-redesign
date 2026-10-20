@@ -1,0 +1,101 @@
+.root {
+  min-width: 0;
+  color: var(--foreground);
+  font-size: var(--text-body-size);
+}
+
+.root h2,
+.root h3 {
+  font-size: var(--text-section-size);
+  font-weight: 600;
+}
+
+.root button {
+  font-size: var(--text-secondary-size);
+  font-weight: 500;
+}
+
+.heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: start;
+  flex-wrap: wrap;
+  gap: var(--spacing-4);
+}
+
+.range {
+  display: grid;
+  gap: var(--spacing-2);
+  min-width: 10rem;
+}
+
+.metrics {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
+  gap: var(--card-gap);
+  margin: var(--spacing-6) 0;
+}
+
+.metric {
+  display: grid;
+  gap: var(--card-gap);
+  padding: var(--card-padding);
+  background: var(--card);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+
+.metric small {
+  color: var(--muted-foreground);
+  font-size: var(--text-secondary-size);
+}
+
+.metric strong {
+  font-size: var(--text-stat-size);
+  font-weight: var(--text-stat-weight);
+  font-variant-numeric: tabular-nums;
+}
+
+.negative {
+  color: var(--error);
+}
+
+.tableScroll {
+  min-width: 0;
+  overflow-x: auto;
+  margin-bottom: var(--spacing-6);
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+}
+
+.table th,
+.table td {
+  padding: var(--spacing-3);
+  border-bottom: 1px solid var(--border);
+  vertical-align: top;
+}
+
+.adjustment {
+  display: grid;
+  gap: var(--card-gap);
+  justify-items: start;
+  padding: var(--card-padding);
+  border-radius: var(--radius);
+  background: var(--surface);
+}
+
+.fields {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(11rem, 1fr));
+  width: 100%;
+  gap: var(--spacing-4);
+}
+
+.fields label {
+  display: grid;
+  gap: var(--spacing-2);
+}

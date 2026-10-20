@@ -1,0 +1,199 @@
+.wrap {
+  display: grid;
+  min-width: 0;
+  gap: var(--card-gap);
+}
+
+.filters {
+  display: flex;
+  gap: var(--spacing-2);
+  overflow-x: auto;
+}
+
+.chip {
+  min-height: 44px;
+  padding: 0 var(--spacing-4);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-full);
+  background: var(--card);
+  color: var(--foreground);
+  cursor: pointer;
+  font: 500 var(--text-button-sm-size) var(--font-family-base);
+}
+
+.chipActive {
+  border-color: #BFEBD8;
+  background: #E6F8F1;
+  color: #0B3B2C;
+}
+
+.chip:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
+}
+
+.historyList {
+  display: grid;
+  gap: var(--spacing-3);
+}
+
+.historyItem {
+  display: flex;
+  min-width: 0;
+  justify-content: space-between;
+  gap: var(--spacing-4);
+  flex-wrap: wrap;
+}
+
+.date {
+  color: var(--muted-foreground);
+  font-size: var(--text-secondary-size);
+}
+
+.historyItem h2 {
+  margin: var(--spacing-1) 0;
+  font-size: var(--text-section-size);
+  font-weight: 600;
+}
+
+.historyItem p {
+  margin: 0;
+  color: var(--muted-foreground);
+  font-size: var(--text-body-size);
+  font-weight: 400;
+  overflow-wrap: anywhere;
+}
+
+.historyEnd {
+  display: grid;
+  justify-items: end;
+  align-content: start;
+  gap: var(--spacing-2);
+}
+
+.historyEnd strong,
+.codCard strong {
+  font-variant-numeric: tabular-nums;
+}
+
+.historyEnd strong {
+  color: var(--success);
+  font-size: var(--text-price-size);
+  font-weight: 600;
+}
+
+.stats {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: var(--card-gap);
+}
+
+.codCard {
+  display: flex;
+  min-width: 0;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--spacing-4);
+  flex-wrap: wrap;
+  background: #E6F8F1;
+  border-color: #BFEBD8;
+}
+
+.codCard > div {
+  display: grid;
+  gap: var(--spacing-1);
+  font-size: var(--text-secondary-size);
+  font-weight: 600;
+}
+
+.codCard strong {
+  font-size: var(--text-stat-size);
+  font-weight: 600;
+}
+
+.codCard p {
+  max-width: 340px;
+  margin: 0;
+  font-size: var(--text-body-size);
+  font-weight: 400;
+}
+
+.heading {
+  margin: 0 0 var(--spacing-4);
+  font-family: var(--font-family-base);
+  font-size: var(--text-section-size);
+  font-weight: 600;
+}
+
+.chart {
+  height: 300px;
+  aspect-ratio: unset;
+}
+
+.emptyChart {
+  margin: 0;
+  color: var(--muted-foreground);
+}
+
+.tableScroll {
+  overflow-x: auto;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: var(--text-body-size);
+  text-align: left;
+  white-space: nowrap;
+}
+
+.table th,
+.table td {
+  padding: var(--spacing-3);
+  border-bottom: 1px solid var(--border);
+}
+
+.table thead th {
+  color: var(--muted-foreground);
+  font-weight: 600;
+}
+
+.table tbody th {
+  font-weight: 600;
+}
+
+.table td:nth-child(n + 2) {
+  font-variant-numeric: tabular-nums;
+}
+
+.explainer {
+  margin: 0;
+  font-size: var(--text-body-size);
+  font-weight: 400;
+  line-height: 1.6;
+}
+
+@media (max-width: 720px) {
+  .historyItem,
+  .codCard {
+    padding: var(--card-padding);
+  }
+
+  .historyItem > div {
+    min-width: 0;
+  }
+
+  .stats {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 390px) {
+  .historyEnd {
+    justify-items: start;
+  }
+
+  .stats {
+    gap: var(--spacing-2);
+  }
+}

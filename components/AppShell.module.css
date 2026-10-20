@@ -1,0 +1,259 @@
+.shell {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-family-base);
+}
+.guestHome .header { display: none; }
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: var(--card);
+  box-shadow: var(--shadow);
+}
+.headerInner {
+  max-width: 1160px;
+  margin: 0 auto;
+  min-height: 3.5rem;
+  padding: var(--spacing-1) var(--spacing-4);
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-4);
+}
+.brand { text-decoration: none; display: inline-flex; padding-right: 0.9rem; }
+.headerBrand sup {
+  top: 0;
+  right: -0.85rem;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: #111111;
+  text-shadow: none;
+}
+.customerApp .headerBrand sup,
+.merchantApp .headerBrand sup { color: #FFFFFF; }
+.nav {
+  display: flex;
+  gap: var(--spacing-1);
+  flex: 1;
+  overflow-x: auto;
+}
+.navLink {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-2);
+  padding: var(--spacing-2) var(--spacing-3);
+  border-radius: var(--radius-full);
+  color: var(--muted-foreground);
+  text-decoration: none;
+  font-weight: 500;
+  font-size: var(--text-nav-size);
+  white-space: nowrap;
+  transition: background var(--animation-duration-fast), color var(--animation-duration-fast);
+}
+.navLink:hover { color: var(--foreground); background: var(--muted); }
+.active { background: var(--primary); color: var(--primary-foreground); }
+.active:hover { background: var(--primary); color: var(--primary-foreground); }
+.walletChip {
+  padding: var(--spacing-1) var(--spacing-2);
+  border-radius: var(--radius-full);
+  background: var(--muted);
+  color: var(--foreground);
+  font-size: 0.75rem;
+}
+.walletError { color: var(--error); font-size: 0.75rem; }
+.right { display: flex; align-items: center; gap: var(--spacing-2); }
+
+.hello { font-weight: 600; font-size: 1rem; color: var(--muted-foreground); }
+.main {
+  flex: 1;
+  width: 100%;
+  max-width: 1160px;
+  margin: 0 auto;
+  padding: var(--spacing-4) var(--spacing-4) var(--spacing-16);
+}
+.footer {
+  background: #FFC400;
+  color: #111111;
+  padding: var(--spacing-12) var(--spacing-4);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--spacing-3);
+  text-align: center;
+  font-size: var(--text-body-size);
+  border-top: 1px solid rgba(255, 255, 255, 0.98);
+  box-shadow: 0 -4px 18px rgba(17, 17, 17, 0.08);
+  position: relative;
+  overflow: hidden;
+}
+.footer::before {
+  content: "";
+  position: absolute;
+  inset: 0 0 auto;
+  height: 55%;
+  background: none;
+  pointer-events: none;
+}
+.footer > * {
+  position: relative;
+  z-index: 1;
+}
+.footerBrand {
+  filter: none;
+}
+.footer .footerBrand sup {
+  top: 0.1rem;
+  right: -1.1rem;
+  color: #111111;
+  font-size: 0.9rem;
+  font-weight: 700;
+  text-shadow: none;
+}
+.customerApp .footer .footerBrand sup { color: #FFFFFF; }
+.footer p { margin: 0; opacity: 0.85; font-size: 1.125rem; font-weight: 500; }
+.footerLinks {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: var(--spacing-4);
+}
+.termsLink {
+  display: inline-flex;
+  align-items: center;
+  min-height: var(--control-height);
+  padding: var(--spacing-2) var(--spacing-4);
+  border-radius: var(--radius-full);
+  background: #FF8A00;
+  color: #111111;
+  font-weight: 600;
+  text-decoration: none;
+}
+.termsLink:hover { background: #F07800; }
+.termsLink:focus-visible {
+  outline: 3px solid var(--primary);
+  outline-offset: 4px;
+  border-radius: var(--radius-sm);
+}
+.supportEmail {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-2);
+  color: #111111;
+  font-weight: 600;
+  text-decoration: none;
+}
+.supportEmail:hover { text-decoration: underline; }
+
+.riderApp,
+.riderApp .main {
+  background: #F6FBF9;
+}
+
+/* Only the partner dashboard uses the merchant navy shell. */
+.merchantApp { background: #F1F3F7; }
+.merchantApp .header { background: #1E2440; }
+.merchantApp .main { background: #F1F3F7; }
+.merchantApp .navLink { color: #C9CEDB; }
+.merchantApp .navLink:hover {
+  background: rgba(255, 255, 255, 0.06);
+  color: #FFFFFF;
+}
+.merchantApp .navLink.active,
+.merchantApp .navLink.active:hover {
+  background: #FFC400;
+  color: #1E2440;
+}
+.merchantApp .hello,
+.merchantApp .right > button { color: #FFFFFF; }
+
+/* Admin is a focused operations workspace, not a customer ordering session. */
+.adminApp .header { background: var(--surface); }
+.adminApp .main { max-width: 1440px; padding-bottom: var(--spacing-6); }
+.adminApp .nav { flex: 0 0 auto; }
+
+.customerApp {
+  --status-error-bg: rgba(248, 113, 113, 0.15);
+  --status-error-text: #FCA5A5;
+  --status-progress-bg: rgba(255, 196, 0, 0.14);
+  --status-progress-text: #FFD54F;
+  --status-pickup-bg: rgba(96, 165, 250, 0.15);
+  --status-pickup-text: #93C5FD;
+  --status-success-bg: rgba(52, 211, 153, 0.15);
+  --status-success-text: #6EE7B7;
+  --status-neutral-bg: rgba(255, 255, 255, 0.08);
+  --status-neutral-text: #AAB3BF;
+  --status-ready-shadow: none;
+}
+
+.customerApp .header {
+  background: rgba(14, 17, 22, 0.78);
+  backdrop-filter: var(--glass-blur);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: none;
+}
+.customerApp .navLink { color: var(--muted-foreground); }
+.customerApp .navLink:hover {
+  color: var(--foreground);
+  background: rgba(255, 255, 255, 0.06);
+}
+.customerApp .navLink.active,
+.customerApp .navLink.active:hover {
+  background: var(--primary);
+  color: var(--primary-foreground);
+}
+.customerApp .walletChip {
+  background: rgba(110, 231, 183, 0.12);
+  color: var(--mint);
+}
+.customerApp .main { background: transparent; }
+.customerApp .footer {
+  background: #0B0E12;
+  color: #AAB3BF;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: none;
+}
+.customerApp .termsLink {
+  background: #FF8A00;
+  color: #111111;
+}
+.customerApp .termsLink:hover {
+  background: #F07800;
+  color: #111111;
+}
+
+.small { opacity: 0.6; font-size: 0.8rem; }
+@media (max-width: 760px) {
+  .nativeCustomerHome .header { display: none; }
+  .nativeCustomerHome .main { padding-top: 0; }
+
+  .merchantApp .header,
+  .merchantApp .footer { display: none; }
+  .merchantApp .main {
+    max-width: none;
+    padding: 0;
+    background: #F1F3F7;
+  }
+  .withCustomerNav .nav { display: none; }
+  .withCustomerNav .footer {
+    padding-bottom: calc(88px + var(--safe-area-inset-bottom, 0px));
+  }
+  .footerLinks {
+    gap: var(--spacing-3);
+  }
+  .loginPage .header,
+  .loginPage .footer { display: none; }
+  .loginPage .main {
+    max-width: none;
+    padding: 0;
+  }
+}
+
+@media (max-width: 640px) {
+  .hello { display: none; }
+  .navLink span { display: none; }
+  .headerInner { gap: var(--spacing-2); }
+}

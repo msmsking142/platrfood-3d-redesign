@@ -1,0 +1,50 @@
+# Platr™
+        
+platr™ – "Affordable for Everyone" Uttarakhand ka apna low-commission food delivery app (formerly Zipto; code identifiers like ziptoConfig/ZiptoLogo and ziptofood.online domains keep the old name — never show "Zipto" in user-facing text). One app where restaurants, riders and normal users (customers) can login, with a separate interface for each of the 3, plus an admin panel for the founder (Manpreet).
+
+platr Fair Plan:
+- Restaurants: Basic ₹0/month + 15% commission on eligible food sales; Pro ₹2,499 + 18% GST (₹2,949 total) per 30 days + 8% commission on eligible food sales (subscription_payments.amount = total, base_amount + gst_amount split). These rates are unchanged and may change only through explicit admin settings.
+- Restaurants pay nothing else: no payment gateway fee, no charge for orders requiring support, no rejected-order penalty. Comparisons may say 'many big platforms charge 25%+ service fee' but never name competitors.
+- Customers: item total at menu rate + distance-based delivery fee that mirrors rider pay (₹25 first 2 km, +₹6/km slabs, +₹6/km after 6 km (fee always equals rider pay), max ₹80; service-area configurable) + platform fee (₹0 at launch) + optional small-order and surge fees (₹0/off by default) + taxes shown as separate lines. Show and lock the full total before payment; any price change requires customer re-confirmation.
+- Taxes (app_settings, admin-editable): GST 5% on food (platr pays as ECO u/s 9(5), no TCS), 18% on delivery/platform fees, 18% on commission; Income-tax TDS u/s 393(1) (Income-tax Act 2025, earlier 194-O) 0.1% of restaurant food sales, deducted per weekly payout batch (5% if no PAN; restaurants.pan); platr GSTIN in app_settings.zipto_gstin shown on bills. Shown as separate lines; Terms #gst. CA confirmation pending.
+- Riders: platr pays base pay + distance pay + incentive through a rider earnings ledger. Commission and gateway fees never reduce rider earnings. Rider payouts are batched weekly after admin approval. Riders pay a one-time, non-refundable onboarding fee of ₹199 + 18% GST (₹234.82) via Razorpay before submitting documents for verification. Restaurants have no joining fee.
+- Marketing: Use “Clear pricing. No platform fee at launch.” only while the platform fee is ₹0. Never name competitors or claim cheapest prices or guaranteed savings.
+
+Payments: Razorpay online (UPI/cards/netbanking/wallets/EMI/pay later) OR platr Wallet — no cash on delivery; place_order rejects 'cod' (legacy enum kept for old data). Orders go to nearby online riders in the same town; first to accept gets it.
+Customer account hub at /account: Food delivery (Your orders, Address book, Veg mode), Payments (platr Wallet, Payment methods from Razorpay /v1/methods), Settings (allow calls, support, terms, logout). platr Wallet = closed-loop, non-withdrawable, non-transferable; top-up ₹100–₹5,000, max balance ₹10,000; full order total from wallet (no split); wallet-order refunds go back to wallet. Veg mode (users.veg_mode, localStorage when logged out) filters menus/home. Customers track orders live (rider map via orderlive channel) Private in-app calls (no phone numbers) between customer, rider and restaurant for active orders only; restaurant→customer needs the customer's "Allow calls from restaurants" opt-in. Details: static/__dev/notes/calls-and-live-location.md
+Login = password + email OTP for all roles (except users.otp_exempt=true, e.g. the Razorpay reviewer test account razorpay.review@ziptofood.online, which logs in with password only); signup verified by email OTP (needs a verified email domain before publishing).
+Brand: yellow #FFC400, black #111, red dot #E53935, Inter font (typography tokens --text-* / --control-height* in base.css; use them instead of arbitrary sizes, avoid 800/900 weights), wordmark is the platr™ logo image (components/ZiptoLogo), not the old text wordmark. Hinglish-friendly copy. Service area: all of Uttarakhand, starting with Udham Singh Nagar (Rudrapur, Kichha, Kashipur etc.). Launch mode is controlled by app_settings.launch_mode (currently OFF / live): when enabled, the public sees a launching-soon homepage ("poore Uttarakhand mein", no specific city names) and can't order, but restaurant & rider onboarding stays open. Support = Contact Support form at /support (topics depend on account: customer/merchant/rider/guest) + inbound email to support@mail.ziptofood.online → tickets in Admin → Support inbox; never show ziptosupport@gmail.com on the site (it's only the admin login). No WhatsApp. Emails: see static/__dev/notes/email-workflows.md In launch mode customer registration shows "coming soon". Pro payments before launch are held and activate (30 days) from the go-live day with an email to the merchant; Pro must be re-paid every 30 days (no auto-debit). Online customer payments are collected via Razorpay; merchants are paid weekly every Friday for delivered online orders (COD excluded). Terms at /terms with Grievance Officer Manpreet Singh. Details: static/__dev/notes/payments-payouts-pro-activation.md
+Pricing/ledger architecture: see static/__dev/notes/pricing-ledger-payouts.md
+Google Maps (address search, reverse geocode, cached road distance for pricing) + safe isolated test pattern: see static/__dev/notes/maps-and-launch-testing.md
+Delivery Failure Protection: rider search starts on restaurant accept, expands after 5 min (optional capped rider incentive, at-risk notice), priority window 5–10 min after READY; no rider by deadline → auto-cancel PLATFORM_DELIVERY_FAILURE, 100% refund (no fee), platr-paid restaurant compensation if food was ready on time (added to Friday payout, no commission); towns auto-pause new orders after repeated failures. Admin → Delivery reliability. Details: static/__dev/notes/delivery-failure-protection.md
+Ratings & food complaints: customers rate restaurants after delivery; food complaints need photo(s), go to admin for approval; approved = 50% of food item value (taxes/fees excluded) refunded instantly (wallet or Razorpay partial refund) and deducted from the restaurant's next weekly payout; max 3 refund complaints per customer, then feedback-only. Emails to both parties. Details: static/__dev/notes/food-complaints-ratings.md
+Privacy: self-serve customer account deletion at /account (account/delete_POST → helpers/accountDeletion: anonymises users row with deleted_at, deletes sessions/passwords/addresses/calls/complaint photos, scrubs order delivery details, rating comments and support contact data; keeps financial/tax records). Partner/rider/admin deletion goes via support. Restaurants never receive customer name/phone/email/address. Privacy Policy at /privacy-policy; privacy contact support@ziptofood.online; legal entity pending confirmation — don't name a company.
+
+Made with Floot.
+
+# Instructions
+
+For security reasons, the `env.json` file is not pre-populated — you will need to generate or retrieve the values yourself.  
+
+For **JWT secrets**, generate a value with:  
+
+```
+node -e "console.log(require('crypto').randomBytes(32).toString('hex'))"
+```
+
+Then paste the generated value into the appropriate field.  
+
+For the **Floot Database**, download your database content as a gzipped pg_dump (.sql.gz) from the cog icon in the database view (right pane -> data -> floot data base -> cog icon on the left of the name), restore it into your own PostgreSQL database (gunzip -c database-dump.sql.gz | psql <connection string>), and then fill in the connection string value.  
+
+**Note:** Floot OAuth will not work in self-hosted environments.  
+
+For other external services, retrieve your API keys and fill in the corresponding values.  
+
+Once everything is configured, you can build and start the service with:  
+
+```
+npm install -g pnpm
+pnpm install
+pnpm vite build
+pnpm tsx server.ts
+```

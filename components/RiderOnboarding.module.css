@@ -1,0 +1,147 @@
+.wrap {
+  display: grid;
+  max-width: 900px;
+  gap: var(--card-gap);
+  margin: 0 auto;
+  padding: var(--spacing-4);
+  color: var(--foreground);
+  font-family: var(--font-family-base);
+}
+
+.hero {
+  padding: clamp(var(--spacing-6), 6vw, var(--spacing-12));
+  border-radius: var(--radius-lg);
+  background: var(--primary);
+  color: var(--primary-foreground);
+}
+
+.kicker {
+  font-size: var(--text-caption-size);
+  font-weight: 600;
+  letter-spacing: 0.12em;
+}
+
+.hero h1 {
+  margin: var(--spacing-4) 0;
+  font-size: 1.75rem;
+  font-weight: 700;
+  letter-spacing: -0.04em;
+  line-height: 1.08;
+}
+
+.hero p {
+  max-width: 520px;
+  margin: 0;
+  font-size: var(--text-body-size);
+  font-weight: 600;
+}
+
+.heroSkeleton {
+  max-width: 390px;
+  height: 2rem;
+}
+
+.settingsError {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-3);
+  flex-wrap: wrap;
+  font-weight: 600;
+}
+
+.steps {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: var(--card-gap);
+}
+
+.steps > div {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-3);
+  min-width: 0;
+  padding: var(--card-padding);
+  border-radius: var(--radius-md);
+  background: var(--surface);
+  font-size: var(--text-secondary-size);
+}
+
+.steps svg {
+  flex: none;
+}
+
+.steps span {
+  display: grid;
+}
+
+.formCard {
+  width: 100%;
+  max-width: 680px;
+  min-width: 0;
+  justify-self: center;
+  padding: var(--card-padding);
+}
+
+.formCard h2 {
+  margin: 0;
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+.formCard > p {
+  margin: var(--spacing-1) 0 var(--spacing-4);
+  color: var(--muted-foreground);
+  font-size: var(--text-body-size);
+  font-weight: 400;
+}
+
+.feeNotice {
+  margin-bottom: var(--spacing-4);
+  padding: var(--card-padding);
+  border-radius: var(--radius-md);
+  background: var(--gold-soft);
+}
+
+.feeNotice p {
+  margin: var(--spacing-2) 0 0;
+  line-height: var(--text-body-line);
+}
+
+.form {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--card-gap);
+}
+
+.form > button {
+  justify-self: start;
+}
+
+.error {
+  grid-column: 1 / -1;
+  margin: 0;
+  color: var(--error);
+  font-size: var(--text-secondary-size);
+  font-weight: 600;
+}
+
+@media (max-width: 750px) {
+  .steps {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 620px) {
+  .wrap {
+    padding: var(--card-padding);
+  }
+
+  .steps,
+  .form {
+    grid-template-columns: 1fr;
+  }
+
+  .form > button {
+    width: 100%;
+  }
+}

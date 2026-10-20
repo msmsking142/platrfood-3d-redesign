@@ -1,0 +1,62 @@
+.card {
+  display: grid;
+  gap: var(--spacing-4);
+  padding: var(--spacing-6);
+  margin-bottom: var(--spacing-6);
+  background: var(--card);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+
+.card h3,
+.card h4,
+.card p,
+.figures {
+  margin: 0;
+}
+
+.balance {
+  display: grid;
+  gap: var(--spacing-2);
+}
+
+.balance strong {
+  font-size: 2rem;
+}
+
+.balance p,
+.figures dt {
+  color: var(--muted-foreground);
+}
+
+.figures {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
+  gap: var(--spacing-4);
+}
+
+.figures dd {
+  margin: var(--spacing-1) 0 0;
+  font-weight: 600;
+}
+
+.form {
+  display: grid;
+  gap: var(--spacing-4);
+  justify-items: start;
+  padding: var(--spacing-4);
+  border-radius: var(--radius);
+  background: var(--surface);
+}
+
+.fields {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(11rem, 1fr));
+  width: 100%;
+  gap: var(--spacing-4);
+}
+
+.fields label {
+  display: grid;
+  gap: var(--spacing-2);
+}

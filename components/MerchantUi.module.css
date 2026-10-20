@@ -1,0 +1,144 @@
+.sectionHeader {
+  display: flex; justify-content: space-between; align-items: flex-end; gap: var(--spacing-4);
+  flex-wrap: wrap; margin-bottom: var(--spacing-6);
+}
+.eyebrow {
+  display: inline-block; font-size: var(--text-caption-size); font-weight: 500; letter-spacing: 0.14em;
+  text-transform: uppercase; color: #665000; margin-bottom: var(--spacing-1);
+}
+.title {
+  margin: 0; font-family: var(--font-family-display); font-weight: 700;
+  font-size: var(--text-page-size); line-height: var(--text-page-line); color: var(--foreground);
+}
+.subtitle { margin: var(--spacing-1) 0 0; color: var(--muted-foreground); max-width: 620px; font-size: var(--text-body-size); font-weight: 400; line-height: var(--text-body-line); }
+.actions { display: flex; gap: var(--spacing-2); flex-wrap: wrap; }
+.card {
+  background: var(--card); border: 0; border-radius: var(--radius-lg);
+  padding: var(--spacing-4); box-shadow: var(--shadow); min-width: 0;
+}
+.plain {}
+.gold { background: #FFC400; border-color: #FFC400; color: #111111; }
+.ink { background: #FFF8D9; color: #111111; border-color: #FFE66D; }
+.warn { background: #FFF0A6; border-color: #FFC400; color: #111111; }
+.stat {
+  background: #FFFFFF; border: 1px solid #E5E5E5; border-radius: var(--radius-md);
+  padding: var(--card-padding); display: flex; flex-direction: column; gap: var(--spacing-2); min-width: 0;
+  box-shadow: var(--shadow);
+}
+.statTop { display: flex; justify-content: space-between; align-items: center; gap: var(--spacing-2); color: var(--muted-foreground); font-size: var(--text-secondary-size); font-weight: 500; }
+.statTop svg { color: #8A6900; }
+.statValue { font-size: var(--text-stat-size); font-weight: var(--text-stat-weight); font-variant-numeric: tabular-nums; overflow-wrap: anywhere; }
+.statHint { color: var(--muted-foreground); font-size: var(--text-caption-size); font-weight: 400; }
+.stat_gold { background: #FFF8D9; border-color: #FFC400; }
+.stat_green { background: linear-gradient(135deg, #e3f6ea, #f7fcf9); border-color: #bfe5cc; }
+.stat_green .statValue { color: #146c36; }
+.stat_blue { background: linear-gradient(135deg, #e9effe, #f8faff); border-color: #cbd8f7; }
+.empty {
+  display: flex; flex-direction: column; align-items: center; text-align: center; gap: var(--spacing-2);
+  padding: var(--spacing-12) var(--spacing-4); border: 1px dashed var(--border); border-radius: var(--radius-lg);
+  background: #FFFFFF; color: var(--muted-foreground);
+}
+.empty svg { color: #8A6900; }
+.empty h3 { margin: 0; color: var(--foreground); font-family: var(--font-family-display); font-size: 1.3rem; }
+.empty p { margin: 0; max-width: 420px; }
+.field { display: flex; flex-direction: column; gap: 6px; }
+.fieldLabel { font-size: var(--text-secondary-size); font-weight: 500; color: var(--foreground); }
+.fieldHint { font-size: var(--text-caption-size); font-weight: 400; color: var(--muted-foreground); }
+
+/* Rider-only palette. Merchant and other consumers retain their existing rules. */
+:global(.riderMint) .eyebrow { color: #0F9F6E; }
+:global(.riderMint) .title { color: #0B3B2C; }
+:global(.riderMint) .subtitle,
+:global(.riderMint) .statTop,
+:global(.riderMint) .statHint { color: #5B7069; }
+:global(.riderMint) .card {
+  background: #FFFFFF;
+  border: 1px solid #DDEFE7;
+  color: #0B3B2C;
+  box-shadow: 0 4px 14px rgba(11, 59, 44, 0.06);
+}
+:global(.riderMint) .gold {
+  background: #3EDC97;
+  border-color: #3EDC97;
+  color: #0B3B2C;
+}
+:global(.riderMint) .ink {
+  background: #E6F8F1;
+  border-color: #BFEBD8;
+  color: #0B3B2C;
+}
+:global(.riderMint) .warn {
+  background: #FFF4CC;
+  border-color: #F5C451;
+  color: #0B3B2C;
+}
+:global(.riderMint) .stat,
+:global(.riderMint) .stat_green,
+:global(.riderMint) .stat_blue {
+  background: #FFFFFF;
+  border-color: #DDEFE7;
+  color: #0B3B2C;
+  box-shadow: 0 4px 14px rgba(11, 59, 44, 0.06);
+}
+:global(.riderMint) .stat_gold {
+  background: #E6F8F1;
+  border-color: #3EDC97;
+  color: #0B3B2C;
+}
+:global(.riderMint) .statTop svg,
+:global(.riderMint) .empty svg { color: #0F9F6E; }
+:global(.riderMint) .stat_green .statValue { color: #0F9F6E; }
+:global(.riderMint) .empty {
+  background: #FFFFFF;
+  border-color: #DDEFE7;
+  color: #5B7069;
+}
+:global(.riderMint) .empty h3,
+:global(.riderMint) .fieldLabel { color: #0B3B2C; }
+:global(.riderMint) .fieldHint { color: #5B7069; }
+
+/* Merchant-only palette. Rider components use the scoped rules above. */
+:global(.merchantNavy) .eyebrow { color: #0F9F6E; }
+:global(.merchantNavy) .title { color: #1E2440; }
+:global(.merchantNavy) .subtitle,
+:global(.merchantNavy) .statTop,
+:global(.merchantNavy) .statHint { color: #5B6275; }
+:global(.merchantNavy) .card {
+  background: #FFFFFF;
+  border: 1px solid #E3E6EE;
+  color: #1E2440;
+}
+:global(.merchantNavy) .gold {
+  background: #FFC400;
+  border-color: #FFC400;
+  color: #1E2440;
+}
+:global(.merchantNavy) .ink {
+  background: #E6E9F4;
+  border-color: #E3E6EE;
+  color: #1E2440;
+}
+:global(.merchantNavy) .warn {
+  background: #FFF4CC;
+  border-color: #FFC400;
+  color: #1E2440;
+}
+:global(.merchantNavy) .stat,
+:global(.merchantNavy) .stat_gold,
+:global(.merchantNavy) .stat_green,
+:global(.merchantNavy) .stat_blue {
+  background: #FFFFFF;
+  border-color: #E3E6EE;
+  color: #1E2440;
+}
+:global(.merchantNavy) .statTop svg,
+:global(.merchantNavy) .empty svg { color: #1E2440; }
+:global(.merchantNavy) .stat_green .statValue { color: #0F7A55; }
+:global(.merchantNavy) .empty {
+  background: #FFFFFF;
+  border-color: #E3E6EE;
+  color: #5B6275;
+}
+:global(.merchantNavy) .empty h3,
+:global(.merchantNavy) .fieldLabel { color: #1E2440; }
+:global(.merchantNavy) .fieldHint { color: #5B6275; }

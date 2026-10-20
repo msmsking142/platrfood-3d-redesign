@@ -1,0 +1,24 @@
+.entry { padding: var(--spacing-4); border: 1px solid var(--border); border-radius: var(--radius-md); background: var(--card); box-shadow: var(--shadow); }
+.top { display: flex; align-items: center; gap: var(--spacing-3); }
+.icon { display: grid; place-items: center; width: 42px; height: 42px; border-radius: var(--radius-full); background: var(--surface); }
+.title { display: flex; flex-wrap: wrap; gap: var(--spacing-2); }
+.address { margin: var(--spacing-3) 0 var(--spacing-1); font-weight: 700; overflow-wrap: anywhere; }
+.detail { margin: var(--spacing-1) 0; color: var(--muted-foreground); font-size: .875rem; overflow-wrap: anywhere; }
+.actions { display: flex; flex-wrap: wrap; gap: var(--spacing-2); margin-top: var(--spacing-4); padding-top: var(--spacing-3); border-top: 1px solid var(--border); }
+.actions button { min-height: 48px; }
+@media (max-width: 450px) { .actions button { flex: 1; } }
+
+:global(.platr-dark) .entry {
+  border: 0;
+  background: var(--card);
+  box-shadow: var(--shadow);
+}
+
+:global(.platr-dark) .icon {
+  background: rgba(255, 196, 0, 0.12);
+  color: var(--primary);
+}
+
+:global(.platr-dark) .actions {
+  border-top-color: rgba(255, 255, 255, 0.06);
+}

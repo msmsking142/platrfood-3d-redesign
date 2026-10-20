@@ -1,0 +1,18 @@
+{
+  "name": "platr",
+  "short_name": "platr",
+  "description": "platr — Affordable for Everyone. Uttarakhand ka apna food delivery app.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#111111",
+  "theme_color": "#FFC400",
+  "icons": [
+    {
+      "src": "/_cdn/static/Platr_TM_Logo.jpg",
+      "sizes": "1542x1536",
+      "type": "image/jpeg",
+      "purpose": "any"
+    }
+  ]
+}

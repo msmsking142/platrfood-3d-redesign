@@ -1,0 +1,342 @@
+.root {
+  display: grid;
+  gap: var(--spacing-3);
+  min-width: 0;
+  color: var(--foreground);
+  font-family: var(--font-family-base);
+}
+
+.hero,
+.partnerCard,
+.summary,
+.ended {
+  min-width: 0;
+  padding: var(--card-padding);
+  border-radius: var(--radius-md);
+  background: var(--card);
+  box-shadow: var(--shadow);
+}
+
+.hero {
+  background: var(--secondary);
+  color: var(--sidebar-foreground);
+}
+
+.eyebrow {
+  margin: 0 0 var(--spacing-2);
+  color: var(--primary);
+  font-size: var(--text-caption-size);
+  font-weight: 600;
+}
+
+.heroTitle {
+  margin: 0;
+  font-size: var(--text-page-size);
+  font-weight: 700;
+  line-height: var(--text-page-line);
+}
+
+.heroSubline,
+.routeError {
+  margin: var(--spacing-2) 0 0;
+  font-size: var(--text-secondary-size);
+}
+
+.heroSubline {
+  color: var(--sidebar-foreground);
+}
+
+.routeError {
+  color: var(--primary);
+}
+
+.subtitleSkeleton {
+  width: 65%;
+  margin-top: var(--spacing-2);
+}
+
+.mapSection {
+  min-width: 0;
+}
+
+.mapWaiting {
+  display: grid;
+  place-items: center;
+  min-height: 12rem;
+  padding: var(--spacing-4);
+  border-radius: var(--radius-md);
+  background: var(--surface);
+  color: var(--muted-foreground);
+  text-align: center;
+  box-shadow: var(--shadow);
+}
+
+.locationStatus {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-2);
+  min-width: 0;
+  margin-top: var(--spacing-2);
+  padding: var(--spacing-2) var(--spacing-3);
+  border-radius: var(--radius);
+  font-size: var(--text-secondary-size);
+  line-height: var(--text-secondary-line);
+}
+
+.statusDot {
+  flex: none;
+  width: 0.5rem;
+  height: 0.5rem;
+  border-radius: var(--radius-full);
+  background: currentColor;
+}
+
+.live {
+  background: color-mix(in srgb, var(--success) 12%, var(--card));
+  color: var(--success);
+}
+
+.warning {
+  background: color-mix(in srgb, var(--warning) 16%, var(--card));
+  color: var(--foreground);
+}
+
+.warning .statusDot {
+  background: var(--warning);
+}
+
+.unavailable {
+  background: var(--muted);
+  color: var(--muted-foreground);
+}
+
+.partnerHeading {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: var(--spacing-3);
+}
+
+.avatar {
+  display: grid;
+  place-items: center;
+  flex: none;
+  width: 2.75rem;
+  height: 2.75rem;
+  border-radius: var(--radius-full);
+  background: var(--primary);
+  color: var(--primary-foreground);
+  font-size: 1.25rem;
+  font-weight: 700;
+}
+
+.partnerInfo {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  min-width: 6rem;
+}
+
+.partnerName {
+  font-size: var(--text-title-size);
+}
+
+.partnerVehicle {
+  color: var(--muted-foreground);
+  font-size: var(--text-caption-size);
+}
+
+.verified {
+  padding: var(--spacing-1) var(--spacing-2);
+  border-radius: var(--radius-full);
+  background: var(--gold-soft);
+  color: var(--foreground);
+  font-size: var(--text-caption-size);
+  font-weight: 600;
+}
+
+.partnerMessage {
+  margin: var(--spacing-3) 0;
+  font-size: var(--text-secondary-size);
+}
+
+.waiting {
+  margin: 0 0 var(--spacing-3);
+  padding: var(--spacing-3);
+  border-radius: var(--radius);
+  background: var(--gold-soft);
+  font-size: var(--text-body-size);
+  font-weight: 600;
+}
+
+.calls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-2);
+}
+
+.privacy {
+  margin: var(--spacing-2) 0 0;
+  color: var(--muted-foreground);
+  font-size: var(--text-caption-size);
+}
+
+.ended {
+  font-size: var(--text-body-size);
+}
+
+.summary {
+  padding: 0;
+  overflow: hidden;
+}
+
+.summaryTrigger {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: var(--spacing-1) var(--spacing-3);
+  width: 100%;
+  min-width: 0;
+  padding: var(--card-padding);
+  text-align: left;
+}
+
+.summaryTrigger:focus-visible {
+  outline: 0.1875rem solid var(--primary);
+  outline-offset: -0.1875rem;
+}
+
+.summaryName {
+  flex: 1 1 50%;
+  min-width: 0;
+  font-size: var(--text-title-size);
+  font-weight: 600;
+  overflow-wrap: anywhere;
+}
+
+.summaryMeta {
+  flex: 1 1 50%;
+  color: var(--muted-foreground);
+  font-size: var(--text-caption-size);
+}
+
+.summaryTotal {
+  margin-left: auto;
+  font-size: var(--text-price-size);
+}
+
+.chevron {
+  flex: none;
+  transition: transform var(--animation-duration-fast) ease;
+}
+
+.summaryTrigger[data-state="open"] .chevron {
+  transform: rotate(180deg);
+}
+
+.summaryContent {
+  display: grid;
+  gap: var(--spacing-2);
+  padding: 0 var(--card-padding) var(--card-padding);
+}
+
+.item {
+  display: flex;
+  justify-content: space-between;
+  gap: var(--spacing-3);
+  font-size: var(--text-secondary-size);
+}
+
+.item span:first-child {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+
+.item span:last-child {
+  flex: none;
+}
+
+.deliveryPin {
+  margin: var(--spacing-2) 0 0;
+  color: var(--muted-foreground);
+  font-size: var(--text-caption-size);
+}
+
+:global(.platr-dark) .root {
+  color: var(--foreground);
+}
+
+:global(.platr-dark) .hero,
+:global(.platr-dark) .partnerCard,
+:global(.platr-dark) .summary,
+:global(.platr-dark) .ended {
+  border: 1px solid rgba(255, 255, 255, 0.09);
+  background: var(--card);
+  box-shadow: var(--shadow-md);
+}
+
+:global(.platr-dark) .hero {
+  background: var(--secondary);
+}
+
+:global(.platr-dark) .eyebrow {
+  color: var(--mint);
+}
+
+:global(.platr-dark) .heroTitle,
+:global(.platr-dark) .summaryName,
+:global(.platr-dark) .summaryTotal,
+:global(.platr-dark) .partnerName {
+  color: var(--foreground);
+}
+
+:global(.platr-dark) .heroSubline,
+:global(.platr-dark) .partnerMessage,
+:global(.platr-dark) .ended {
+  color: var(--muted-foreground);
+}
+
+:global(.platr-dark) .routeError {
+  color: #fca5a5;
+}
+
+:global(.platr-dark) .mapWaiting {
+  border: 1px solid rgba(255, 255, 255, 0.09);
+  background: var(--surface);
+  box-shadow: var(--shadow-md);
+}
+
+:global(.platr-dark) .live {
+  background: rgba(110, 231, 183, 0.12);
+  color: var(--mint);
+}
+
+:global(.platr-dark) .warning {
+  background: rgba(255, 196, 0, 0.12);
+  color: #ffd54f;
+}
+
+:global(.platr-dark) .unavailable {
+  background: var(--muted);
+  color: var(--muted-foreground);
+}
+
+:global(.platr-dark) .verified,
+:global(.platr-dark) .waiting {
+  background: rgba(255, 196, 0, 0.12);
+  color: #ffd54f;
+}
+
+:global(.platr-dark) .summaryTrigger {
+  color: var(--foreground);
+}
+
+:global(.platr-dark) .summaryTrigger:focus-visible {
+  outline-color: var(--primary);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .chevron {
+    transition: none;
+  }
+}

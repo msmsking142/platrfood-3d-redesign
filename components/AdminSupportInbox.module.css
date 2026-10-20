@@ -1,0 +1,293 @@
+.section {
+  display: grid;
+  gap: var(--card-gap);
+  min-width: 0;
+  margin: var(--spacing-4) 0;
+  padding: var(--card-padding);
+  border-radius: var(--radius-md);
+  background: var(--card);
+  box-shadow: var(--shadow);
+  color: var(--foreground);
+  font-family: var(--font-family-base);
+  font-size: var(--text-body-size);
+}
+
+.section button {
+  font-size: var(--text-secondary-size);
+  font-weight: 500;
+}
+
+.header,
+.detailHeader,
+.rowTop,
+.messageHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: var(--spacing-3);
+}
+
+.header h2,
+.detailHeader h3 {
+  margin: 0;
+  font-size: var(--text-section-size);
+  font-weight: 600;
+}
+
+.eyebrow,
+.ticketId {
+  margin: 0 0 var(--spacing-1);
+  color: var(--muted-foreground);
+  font-size: var(--text-caption-size);
+  font-weight: 600;
+}
+
+.workspace {
+  display: grid;
+  grid-template-columns: minmax(0, 22.5rem) minmax(0, 1fr);
+  min-height: 38rem;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  box-shadow: var(--shadow);
+}
+
+.listPane,
+.detailPane {
+  min-width: 0;
+  padding: var(--spacing-4);
+}
+
+.listPane {
+  background: var(--surface);
+}
+
+.detailPane {
+  display: grid;
+  align-content: start;
+  gap: var(--spacing-6);
+  background: var(--card);
+}
+
+.filters {
+  max-width: 100%;
+  overflow-x: auto;
+}
+
+.filterCount {
+  margin-left: var(--spacing-1);
+  font-variant-numeric: tabular-nums;
+}
+
+.controls {
+  display: grid;
+  gap: var(--spacing-2);
+  margin: var(--spacing-4) 0;
+}
+
+.list,
+.loading,
+.conversation,
+.replyForm {
+  display: grid;
+  gap: var(--spacing-3);
+}
+
+.ticketRow {
+  display: grid;
+  gap: var(--card-gap);
+  width: 100%;
+  min-width: 0;
+  padding: var(--card-padding);
+  border: 0;
+  border-radius: var(--radius);
+  background: var(--card);
+  box-shadow: var(--shadow);
+  color: var(--foreground);
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+}
+
+.ticketRow:hover,
+.ticketRow:focus-visible,
+.selected {
+  background: var(--gold-soft);
+}
+
+.ticketRow:focus-visible {
+  outline: 2px solid var(--foreground);
+}
+
+.rowTop strong,
+.snippet {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.rowTop strong {
+  min-width: 0;
+}
+
+.rowTop {
+  min-width: 0;
+}
+
+.rowTop > span,
+.snippet {
+  color: var(--muted-foreground);
+  font-size: var(--text-secondary-size);
+}
+
+.rowTop > span {
+  flex-shrink: 0;
+}
+
+.rowBadges,
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-2);
+}
+
+.infoCard {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 10rem), 1fr));
+  gap: var(--card-gap);
+  padding: var(--card-padding);
+  border-radius: var(--radius);
+  background: var(--surface);
+}
+
+.infoCard > span {
+  display: grid;
+  gap: var(--spacing-1);
+  overflow-wrap: anywhere;
+}
+
+.infoCard strong,
+.replyForm label {
+  font-size: var(--text-body-size);
+  font-weight: 600;
+}
+
+.message {
+  display: grid;
+  gap: var(--card-gap);
+  width: min(100%, 80%);
+  padding: var(--card-padding);
+  border-radius: var(--radius-md);
+}
+
+.inbound {
+  justify-self: start;
+  background: var(--surface);
+}
+
+.outbound {
+  justify-self: end;
+  background: var(--gold-soft);
+}
+
+.messageHeader {
+  flex-wrap: wrap;
+  font-size: 0.875rem;
+}
+
+.messageHeader strong,
+.messageText,
+.senderLine {
+  overflow-wrap: anywhere;
+}
+
+.messageHeader time,
+.attachmentNote,
+.senderLine,
+.empty,
+.refreshing,
+.detailEmpty {
+  color: var(--muted-foreground);
+  font-size: var(--text-secondary-size);
+}
+
+.messageText,
+.attachmentNote,
+.senderLine,
+.empty,
+.refreshing {
+  margin: 0;
+}
+
+.messageText {
+  white-space: pre-wrap;
+}
+
+.replyForm {
+  padding-top: var(--spacing-4);
+}
+
+.formError {
+  margin: 0;
+  color: var(--error);
+  font-size: var(--text-secondary-size);
+}
+
+.errorPanel {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: var(--spacing-3);
+  padding: var(--spacing-4);
+  border-radius: var(--radius);
+  background: var(--surface);
+}
+
+.errorPanel p {
+  margin: 0;
+}
+
+.detailEmpty {
+  align-self: center;
+  justify-self: center;
+  text-align: center;
+}
+
+.skeletonHeading {
+  width: 12rem;
+  height: 2rem;
+}
+
+.skeletonCard {
+  height: 8rem;
+}
+
+.backButton {
+  display: none;
+}
+
+@media (max-width: 700px) {
+  .section {
+    padding: var(--card-padding);
+  }
+
+  .workspace {
+    display: block;
+  }
+
+  .mobileHidden {
+    display: none;
+  }
+
+  .backButton {
+    display: inline-flex;
+    justify-self: start;
+  }
+
+  .message {
+    width: 100%;
+  }
+
+  .actions > * {
+    width: 100%;
+  }
+}

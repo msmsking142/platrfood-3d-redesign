@@ -1,0 +1,24 @@
+.picker { display: flex; flex-direction: column; gap: var(--spacing-2); }
+.heading { font-size: var(--text-secondary-size); font-weight: 500; }
+.options { display: flex; gap: var(--spacing-2); overflow-x: auto; padding-bottom: var(--spacing-1); }
+.option { flex: 0 0 auto; max-width: 12rem; display: flex; flex-direction: column; align-items: flex-start; gap: var(--spacing-1); padding: var(--spacing-2); border: 1px solid var(--border); border-radius: var(--radius); background: var(--card); color: var(--foreground); font: inherit; font-size: var(--text-secondary-size); font-weight: 500; text-align: left; cursor: pointer; }
+.option span { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; max-width: 100%; color: var(--muted-foreground); }
+.option.selected { border-color: var(--foreground); background: var(--gold-soft); }
+.option:focus-visible { outline: 2px solid var(--primary); outline-offset: 2px; }
+.save { display: flex; align-items: center; gap: var(--spacing-2); font-size: var(--text-secondary-size); cursor: pointer; }
+.hint { margin: 0; color: var(--muted-foreground); font-size: var(--text-secondary-size); }
+.error { margin: 0; color: var(--error); font-size: var(--text-secondary-size); }
+
+[class~="platr-dark"] .option {
+  border-color: rgba(255, 255, 255, 0.1);
+  background: var(--surface);
+}
+
+[class~="platr-dark"] .option.selected {
+  border-color: var(--primary);
+  background: rgba(255, 196, 0, 0.12);
+}
+
+[class~="platr-dark"] .error {
+  color: #fca5a5;
+}

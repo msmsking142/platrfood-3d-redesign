@@ -1,0 +1,57 @@
+.screen {
+  min-height: 26rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  gap: var(--spacing-4);
+  padding: var(--spacing-8);
+  border-radius: var(--radius-lg);
+  background: var(--secondary);
+  color: var(--sidebar-foreground);
+  box-shadow: var(--shadow-md);
+}
+
+.badge {
+  padding: var(--spacing-2) var(--spacing-4);
+  border-radius: var(--radius-full);
+  background: var(--primary);
+  color: var(--primary-foreground);
+  font-weight: 700;
+}
+
+.screen h1,
+.screen h2,
+.screen p {
+  margin: 0;
+}
+
+.screen h1 {
+  font-family: var(--font-family-display);
+  font-size: var(--text-page-size);
+  font-weight: 700;
+  line-height: 1.25;
+}
+
+.screen h2 {
+  color: var(--primary);
+  font-size: var(--text-section-size);
+  font-weight: 500;
+}
+
+.screen a {
+  color: var(--primary);
+  font-weight: 600;
+}
+
+@media (min-width: 768px) {
+  .screen h1 {
+    font-size: 1.75rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .screen {
+    padding: var(--spacing-6);
+  }
+}

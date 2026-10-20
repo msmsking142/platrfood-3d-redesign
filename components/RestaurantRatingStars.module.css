@@ -1,0 +1,73 @@
+.root {
+  --star-size: 1.125rem;
+  --rating-ink: #f5f7fa;
+
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-2);
+  max-width: 100%;
+  padding: var(--spacing-2) var(--spacing-3);
+  border: 1px solid color-mix(in srgb, var(--rating-ink) 16%, transparent);
+  border-radius: var(--radius-full);
+  background: rgba(14, 17, 22, 0.72);
+  color: var(--rating-ink);
+  font-family: var(--font-family-base);
+  font-size: var(--text-secondary-size);
+  font-weight: 600;
+  line-height: 1;
+  white-space: nowrap;
+}
+
+.small {
+  --star-size: 0.875rem;
+
+  gap: var(--spacing-1);
+  padding: var(--spacing-1) var(--spacing-2);
+  font-size: var(--text-caption-size);
+}
+
+.stars {
+  position: relative;
+  display: block;
+  flex: none;
+  width: calc(var(--star-size) * 5);
+  height: var(--star-size);
+}
+
+.outlineStars,
+.filledStars {
+  display: flex;
+  width: max-content;
+  height: var(--star-size);
+}
+
+.outlineStars {
+  color: color-mix(in srgb, var(--rating-ink) 58%, transparent);
+}
+
+.filledOverlay {
+  position: absolute;
+  inset-block: 0;
+  left: 0;
+  overflow: hidden;
+  color: var(--primary);
+}
+
+.star {
+  flex: 0 0 var(--star-size);
+  width: var(--star-size);
+  height: var(--star-size);
+}
+
+.filledStars .star {
+  fill: currentColor;
+}
+
+.label {
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+:global([class~="platr-dark"]) .root {
+  border-color: color-mix(in srgb, var(--rating-ink) 26%, transparent);
+}

@@ -1,0 +1,324 @@
+
+@import url(https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap);
+
+
+
+
+@layer base {
+  body {
+    font-size: var(--text-body-size);
+    line-height: var(--text-body-line);
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+  
+  h1 { 
+    font-size: var(--text-page-size); 
+    font-weight: var(--text-page-weight); 
+    line-height: var(--text-page-line); 
+  }
+  
+  h2 { 
+    font-size: var(--text-section-size); 
+    font-weight: var(--text-section-weight); 
+    line-height: var(--text-section-line); 
+  }
+  
+  h3 { 
+    font-size: 1rem; 
+    font-weight: 600; 
+    line-height: 1.35; 
+  }
+  
+  h4, h5, h6 { 
+    font-size: var(--text-body-size); 
+    font-weight: 600; 
+  }
+  
+  input, select, textarea { 
+    font-family: inherit; 
+  }
+}
+
+:root {
+  /* Overlay layers */
+  --z-overlay: 400;
+
+  --z-spotlight: 1000; /* Tutorial spotlights/guided help */
+
+  /* System layers */
+  --z-critical: 2000; /* Critical system notifications */
+
+  /* spacing */
+  --spacing-1: 0.25rem;
+  --spacing-2: 0.5rem;
+  --spacing-3: 0.75rem;
+  --spacing-4: 1rem;
+  --spacing-6: 1.5rem;
+  --spacing-8: 2rem;
+  --spacing-12: 3rem;
+  --spacing-16: 4rem;
+  --spacing-20: 5rem;
+}
+
+:root {
+  --background: #FAF8FF;
+  --foreground: #111111;
+  --surface: #FFF8D9;
+  --surface-foreground: #111111;
+  --sidebar: #FFC400;
+  --sidebar-foreground: #111111;
+  --card: #FFFFFF;
+  --card-foreground: #111111;
+  --popup: #FFFFFF;
+  --popup-foreground: #111111;
+  --primary: #FFC400;
+  --primary-foreground: #111111;
+  --secondary: #E6F6F3;
+  --secondary-foreground: #00685F;
+  --accent: #FFC400;
+  --accent-foreground: #111111;
+  --muted: #F2F3FF;
+  --muted-foreground: #5B6472;
+  --success: #0D9488;
+  --success-foreground: #ffffff;
+  --error: #d32f2f;
+  --error-foreground: #ffffff;
+  --warning: #f59e0b;
+  --warning-foreground: #111111;
+  --info: #2563eb;
+  --info-foreground: #ffffff;
+  --info-hover: #1d4ed8;
+  --info-active: #1e40af;
+  --border: #E3E6EF;
+  
+  /* New Colors */
+  --teal: #0D9488;
+  --teal-strong: #00685F;
+  --teal-soft: #E6F6F3;
+  --emerald: #10B981;
+  --crimson: #E11D48;
+  --mint: #6EE7B7;
+  
+  /* Typography */
+  --font-family-base: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, Arial, sans-serif;
+  --font-family-display: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, Arial, sans-serif;
+  --font-family-brand: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, Arial, sans-serif;
+  --font-family-heading: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, Arial, sans-serif;
+  --font-family-monospace: ui-monospace, 'SFMono-Regular', Menlo, monospace;
+  --font-family-cursive: 'Inter', cursive;
+  
+  /* Typography Tokens */
+  --text-page-size: 1.5rem; 
+  --text-page-weight: 700; 
+  --text-page-line: 1.25;
+  --text-section-size: 1.125rem; 
+  --text-section-weight: 600; 
+  --text-section-line: 1.3;
+  --text-title-size: 0.9375rem; 
+  --text-title-weight: 500; 
+  --text-title-line: 1.35;
+  --text-body-size: 0.875rem; 
+  --text-body-weight: 400; 
+  --text-body-line: 1.45;
+  --text-secondary-size: 0.8125rem; 
+  --text-caption-size: 0.75rem; 
+  --text-secondary-line: 1.4;
+  --text-price-size: 0.9375rem; 
+  --text-price-weight: 600;
+  --text-button-size: 0.875rem; 
+  --text-button-sm-size: 0.8125rem; 
+  --text-nav-size: 0.75rem; 
+  --text-button-weight: 500;
+  --text-stat-size: 1.375rem; 
+  --text-stat-weight: 600;
+
+  /* Control Sizing Tokens */
+  --control-height-sm: 2rem; 
+  --control-height: 2.5rem; 
+  --control-height-lg: 2.75rem;
+  
+  /* Card Spacing Tokens */
+  --card-padding: 0.875rem; 
+  --card-gap: 0.75rem;
+  
+  --shadow: 0 1px 2px rgba(19, 27, 46, 0.04), 0 4px 14px rgba(19, 27, 46, 0.05);
+  --shadow-md: 0 10px 30px rgba(19, 27, 46, 0.08);
+  --shadow-lg: 0 24px 60px rgba(19, 27, 46, 0.14);
+  --shadow-focus: 0 0 0 3px rgba(255, 196, 0, 0.35);
+  --radius-sm: 8px;
+  --radius: 12px;
+  --radius-md: 16px;
+  --radius-lg: 24px;
+  --radius-full: 9999px;
+  
+  --gold-gradient: linear-gradient(135deg, #FFE66D 0%, #FFC400 100%);
+  --ink-gradient: linear-gradient(135deg, #FFF8D9 0%, #FFC400 100%);
+  --teal-gradient: linear-gradient(135deg, #10B981 0%, #0D9488 100%);
+  --gold-soft: #FFF8D9;
+  
+  --glass-bg: rgba(255, 255, 255, 0.78);
+  --glass-blur: blur(14px) saturate(160%);
+  
+  --animation-duration-fast: 120ms;
+  --animation-duration-normal: 220ms;
+  --animation-duration-slow: 400ms;
+  --animation-easing: cubic-bezier(0.22, 1, 0.36, 1);
+  
+  --chart-color-1: #FFC400;
+  --chart-color-2: #0D9488;
+  --chart-color-3: #111111;
+  --chart-color-4: #E53935;
+  --chart-color-5: #10B981;
+}
+
+.dark {
+}
+
+.platr-dark {
+  --background: #0E1116;
+  --foreground: #F5F7FA;
+  --surface: #161B22;
+  --surface-foreground: #F5F7FA;
+  --card: #1A2028;
+  --card-foreground: #F5F7FA;
+  --popup: #1A2028;
+  --popup-foreground: #F5F7FA;
+  --primary: #FFC400;
+  --primary-foreground: #111111;
+  --secondary: #12332B;
+  --secondary-foreground: #6EE7B7;
+  --accent: #FFC400;
+  --accent-foreground: #111111;
+  --muted: #222A35;
+  --muted-foreground: #AAB3BF;
+  --border: #2A323D;
+  --success: #34D399;
+  --success-foreground: #0E1116;
+  --error: #F87171;
+  --error-foreground: #0E1116;
+  --warning: #FBBF24;
+  --warning-foreground: #111111;
+  --info: #60A5FA;
+  --info-foreground: #0E1116;
+  --teal: #2DD4BF;
+  --teal-strong: #6EE7B7;
+  --teal-soft: #12332B;
+  --emerald: #34D399;
+  --mint: #6EE7B7;
+  --gold-soft: #2A2410;
+  --ink-gradient: linear-gradient(135deg, #1A2028 0%, #0E1116 100%);
+  --glass-bg: rgba(14, 17, 22, 0.78);
+  --shadow: 0 1px 2px rgba(0,0,0,0.3), 0 6px 18px rgba(0,0,0,0.28);
+  --shadow-md: 0 12px 32px rgba(0,0,0,0.38);
+  --shadow-lg: 0 24px 60px rgba(0,0,0,0.5);
+  --chart-color-3: #F5F7FA;
+  
+  color-scheme: dark;
+  background: var(--background);
+  color: var(--foreground);
+}
+
+/* platr Alpine Fresh theme */
+@layer base {
+  :root {
+    --background: #FAF8FF;
+    --foreground: #111111;
+    --surface: #FFF8D9;
+    --surface-foreground: #111111;
+    --sidebar: #FFC400;
+    --sidebar-foreground: #111111;
+    --card: #FFFFFF;
+    --card-foreground: #111111;
+    --popup: #FFFFFF;
+    --popup-foreground: #111111;
+    --primary: #FFC400;
+    --primary-foreground: #111111;
+    --secondary: #E6F6F3;
+    --secondary-foreground: #00685F;
+    --accent: #FFC400;
+    --accent-foreground: #111111;
+    --muted: #F2F3FF;
+    --muted-foreground: #5B6472;
+    --border: #E3E6EF;
+    --shadow-focus: 0 0 0 3px rgba(255, 196, 0, 0.35);
+    
+    --teal: #0D9488;
+    --teal-strong: #00685F;
+    --teal-soft: #E6F6F3;
+    --emerald: #10B981;
+    --crimson: #E11D48;
+
+    --gold-gradient: linear-gradient(135deg, #FFE66D 0%, #FFC400 100%);
+    --ink-gradient: linear-gradient(135deg, #FFF8D9 0%, #FFC400 100%);
+    --teal-gradient: linear-gradient(135deg, #10B981 0%, #0D9488 100%);
+    --gold-soft: #FFF8D9;
+
+    --glass-bg: rgba(255, 255, 255, 0.78);
+    --glass-blur: blur(14px) saturate(160%);
+
+    --chart-color-1: #FFC400;
+    --chart-color-2: #0D9488;
+    --chart-color-3: #111111;
+    --chart-color-4: #E53935;
+    --chart-color-5: #10B981;
+  }
+
+  body { background: var(--background); color: var(--foreground); }
+  input:focus-visible, select:focus-visible, textarea:focus-visible,
+  button:focus-visible, a:focus-visible { outline-color: #FFC400; }
+}
+@layer base {
+  /* Safe-area insets that resolve on every platform. iOS and the web populate
+     env(); Capacitor on Android 15+ cannot, so its SystemBars plugin sets these
+     SAME variables as inline styles on <html>, which beat this layered rule.
+     App code pads by var(--safe-area-inset-*) and never touches env() itself.
+     All 0px unless the native shell is in edge-to-edge mode (or the PWA runs
+     under a notch). */
+  :root {
+    --safe-area-inset-top: env(safe-area-inset-top, 0px);
+    --safe-area-inset-right: env(safe-area-inset-right, 0px);
+    --safe-area-inset-bottom: env(safe-area-inset-bottom, 0px);
+    --safe-area-inset-left: env(safe-area-inset-left, 0px);
+  }
+
+  ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  body {
+    background: var(--background);
+    color: var(--foreground);
+    font-family: var(--font-family-base);
+  }
+
+  * {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+  }
+
+
+  button {
+    border: none;
+    background: none;
+    cursor: pointer;
+    font-family: inherit;
+    font-size: inherit;
+    color: inherit;
+  }
+
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  th, td {
+    display: table-cell!important;
+  }
+}
+.rbc-month-view {
+  overflow: visible !important;
+}

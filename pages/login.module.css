@@ -1,0 +1,321 @@
+.wrap {
+  display: flex;
+  justify-content: center;
+  min-height: 100vh;
+  padding: var(--spacing-8) var(--spacing-4);
+}
+
+.card {
+  width: 100%;
+  max-width: 27.5rem;
+  align-self: flex-start;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--card-gap);
+  padding: var(--spacing-6) var(--spacing-4);
+  border-radius: 1.5rem;
+  background: var(--primary);
+  color: var(--primary-foreground);
+  box-shadow: var(--shadow-lg);
+}
+
+.brand {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--spacing-3);
+  text-align: center;
+}
+
+.brand p {
+  margin: 0;
+  font-weight: 600;
+  line-height: 1.5;
+}
+
+.rider {
+  display: block;
+  width: min(15rem, 70%);
+  height: auto;
+  object-fit: contain;
+  animation: float 4s ease-in-out infinite;
+}
+
+.benefits {
+  align-self: stretch;
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-3);
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.benefits li {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-3);
+  font-size: var(--text-body-size);
+  font-weight: 500;
+}
+
+.checkIcon {
+  display: inline-flex;
+  flex: none;
+  align-items: center;
+  justify-content: center;
+  width: 1.5rem;
+  height: 1.5rem;
+  border-radius: var(--radius-full);
+  background: #16834A;
+  color: #FFFFFF;
+  box-shadow: 0 2px 6px rgba(22, 131, 74, 0.22);
+}
+
+.actionArea,
+.formArea,
+.joinForm {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  gap: var(--spacing-3);
+}
+
+.formArea {
+  animation: formEnter var(--animation-duration-slow) var(--animation-easing) both;
+}
+
+.title {
+  margin: 0;
+  font-family: var(--font-family-display);
+  font-size: var(--text-page-size);
+  font-weight: 700;
+  line-height: var(--text-page-line);
+}
+
+.sub {
+  margin: 0;
+  font-size: var(--text-body-size);
+  font-weight: var(--text-body-weight);
+  line-height: var(--text-body-line);
+}
+
+.authForm input,
+.joinForm input {
+  background: var(--card);
+  border-radius: 0.875rem;
+}
+
+.authForm button[type="submit"],
+.submit {
+  width: 100%;
+  background: #16834A;
+  border-color: #16834A;
+  color: #FFFFFF;
+  border-radius: var(--radius-full);
+  --spinner-color: #FFFFFF;
+  font-weight: 700;
+  box-shadow: 0 4px 12px rgba(22, 131, 74, 0.24);
+}
+
+.authForm button[type="submit"]:hover,
+.submit:hover {
+  background: #11683B;
+  border-color: #11683B;
+}
+
+.modeButton {
+  width: 100%;
+  height: 3rem;
+  border: 1.5px solid #16834A;
+  border-radius: var(--radius-full);
+  color: #FFFFFF;
+  background: #16834A;
+  font-weight: 700;
+  box-shadow: 0 4px 12px rgba(22, 131, 74, 0.2);
+}
+
+.modeButton:hover {
+  background: #11683B;
+  border-color: #11683B;
+  color: #FFFFFF;
+}
+
+.skip {
+  text-align: center;
+  font-size: var(--text-body-size);
+}
+
+.skip a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 5px 12px;
+  border-radius: var(--radius-full);
+  background: #D93025;
+  color: #FFFFFF;
+  font-weight: 700;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  box-shadow: 0 3px 9px rgba(217, 48, 37, 0.24);
+}
+
+.terms {
+  text-align: center;
+  font-size: var(--text-caption-size);
+  line-height: var(--text-secondary-line);
+}
+
+.terms a {
+  color: #155D35;
+  font-weight: 700;
+  text-decoration: underline;
+}
+
+.roles {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: var(--spacing-2);
+}
+
+.roleCard {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--spacing-1);
+  min-width: 0;
+  padding: var(--spacing-3);
+  border: 1.5px solid transparent;
+  border-radius: var(--radius-md);
+  background: var(--card);
+  color: var(--foreground);
+  font-family: inherit;
+  text-align: left;
+  cursor: pointer;
+  box-shadow: var(--shadow);
+}
+
+.roleCard span {
+  font-size: var(--text-caption-size);
+  line-height: var(--text-secondary-line);
+  color: var(--muted-foreground);
+}
+
+.roleCard b {
+  font-size: var(--text-secondary-size);
+  font-weight: 600;
+}
+
+.roleOn {
+  border-color: var(--secondary);
+}
+
+.field {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: var(--spacing-1);
+}
+
+.field > span {
+  font-size: var(--text-secondary-size);
+  font-weight: 600;
+}
+
+.row {
+  display: flex;
+  gap: var(--spacing-3);
+}
+
+.row .field {
+  min-width: 0;
+}
+
+.error {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--spacing-3);
+  padding: var(--spacing-3);
+  border-radius: var(--radius);
+  background: var(--card);
+  color: var(--error);
+  font-size: 0.875rem;
+}
+
+.comingSoon {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--spacing-3);
+  padding: var(--spacing-4);
+  border-radius: var(--radius-lg);
+  background: var(--card);
+}
+
+.comingSoon h2,
+.comingSoon p {
+  margin: 0;
+}
+
+.comingSoon h2 {
+  font-size: var(--text-section-size);
+  font-weight: 600;
+}
+
+.comingSoon p {
+  font-size: 0.875rem;
+  line-height: 1.6;
+}
+
+.comingSoonActions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-2);
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-0.5rem);
+  }
+}
+
+@keyframes formEnter {
+  from {
+    opacity: 0;
+    transform: translateY(0.5rem);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 30rem) {
+  .wrap {
+    padding: 0;
+  }
+
+  .card {
+    max-width: none;
+    min-height: 100vh;
+    padding: var(--spacing-4);
+    border-radius: 0;
+    box-shadow: none;
+  }
+
+  .row {
+    flex-direction: column;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .rider,
+  .formArea {
+    animation: none;
+  }
+}

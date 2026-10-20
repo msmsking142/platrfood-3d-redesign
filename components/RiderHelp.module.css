@@ -1,0 +1,63 @@
+.wrap {
+  display: grid;
+  min-width: 0;
+  gap: var(--card-gap);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1.3fr 1fr;
+  align-items: start;
+  gap: var(--card-gap);
+}
+
+.heading {
+  margin: 0 0 var(--spacing-4);
+  font-family: var(--font-family-base);
+  font-size: var(--text-section-size);
+  font-weight: 600;
+}
+
+.paySkeleton {
+  height: 2rem;
+  max-width: 24rem;
+}
+
+.contact {
+  display: grid;
+  justify-items: start;
+  gap: var(--card-gap);
+}
+
+.contact .heading,
+.contact p {
+  margin: 0;
+}
+
+.contact p {
+  color: var(--muted-foreground);
+  font-size: var(--text-body-size);
+  font-weight: 400;
+  line-height: 1.5;
+}
+
+.contact > a:not(:last-child) {
+  max-width: 100%;
+  color: var(--foreground);
+  font-weight: 600;
+  overflow-wrap: anywhere;
+}
+
+@media (max-width: 760px) {
+  .grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .grid > * {
+    min-width: 0;
+  }
+
+  .contact {
+    padding: var(--card-padding);
+  }
+}

@@ -1,0 +1,31 @@
+.account {
+  color: var(--muted-foreground);
+  margin-bottom: var(--spacing-4);
+  overflow-wrap: anywhere;
+}
+
+.nameEmail {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--card-gap);
+}
+
+.orderSkeleton {
+  height: 2.5rem;
+}
+
+.orderError {
+  color: var(--error);
+  font-size: 0.875rem;
+}
+
+@media (max-width: 35rem) {
+  .nameEmail {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+}
+
+[class~="platr-dark"] .orderError {
+  color: #fca5a5;
+}

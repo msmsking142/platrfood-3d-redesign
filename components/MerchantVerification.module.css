@@ -1,0 +1,37 @@
+.wrap { display: flex; flex-direction: column; gap: var(--card-gap); min-width: 0; }
+.statusRow { display: flex; justify-content: space-between; gap: var(--spacing-3); align-items: flex-start; }
+.statusRow p { margin: 4px 0 0; color: var(--muted-foreground); font-size: 0.9rem; }
+.steps { list-style: none; padding: 0; margin: var(--spacing-4) 0 0; display: grid; grid-template-columns: repeat(4, 1fr); gap: var(--spacing-2); }
+.steps li { display: flex; flex-direction: column; gap: 6px; font-size: 0.82rem; font-weight: 600; color: var(--muted-foreground); padding: var(--spacing-3); border-radius: var(--radius-md); background: var(--muted); }
+.stepIcon { width: 32px; height: 32px; border-radius: 50%; display: grid; place-items: center; background: #fff; color: var(--muted-foreground); }
+.steps .done { background: #e2f5e9; color: #146c36; }
+.done .stepIcon { background: #1b9e4b; color: #fff; }
+.h3 { margin: 0 0 var(--spacing-2); font-family: var(--font-family-display); font-size: var(--text-section-size); font-weight: 600; }
+.current { display: flex; align-items: center; gap: 6px; flex-wrap: wrap; margin: 0 0 var(--spacing-4); font-size: 0.9rem; }
+.current a { color: #8a6500; font-weight: 700; }
+.bad { color: #b42318; font-size: 0.88rem; }
+.form { display: grid; grid-template-columns: 1.4fr 1fr; gap: var(--spacing-4); }
+.upload { position: relative; display: flex; align-items: center; gap: var(--spacing-2); border: 1.5px dashed #d8c48a; border-radius: var(--radius); padding: 10px 14px; cursor: pointer; background: #fffcf4; font-weight: 600; font-size: 0.88rem; }
+.upload input { position: absolute; inset: 0; opacity: 0; cursor: pointer; }
+.actions { display: flex; align-items: center; gap: var(--spacing-3); flex-wrap: wrap; margin-top: var(--spacing-4); }
+.actions small { color: var(--muted-foreground); }
+@media (max-width: 760px) {
+  .wrap { font-size: 0.8125rem; }
+  .statusRow b { font-size: 1rem; font-weight: 600; }
+  .statusRow p { font-size: 0.8125rem; }
+  .statusRow > :last-child { font-size: 0.7rem; }
+  .steps li { padding: 0.625rem; font-size: 0.75rem; font-weight: 600; }
+  .stepIcon { width: 1.5rem; height: 1.5rem; }
+  .stepIcon svg { width: 0.875rem; height: 0.875rem; }
+  .h3 { font-size: var(--text-section-size); font-weight: 600; }
+  .current, .bad { font-size: 0.8125rem; }
+  .form label { font-size: 0.8rem; font-weight: 600; }
+  .form .upload {
+    padding: 0.5rem 0.75rem;
+    font-size: 0.8rem;
+    font-weight: 500;
+  }
+  .form input[type="date"] { font-size: 0.875rem; }
+  .actions small, .form small { font-size: 0.72rem; }
+}
+@media (max-width: 700px) { .steps { grid-template-columns: repeat(2, minmax(0, 1fr)); } .form { grid-template-columns: minmax(0, 1fr); } }

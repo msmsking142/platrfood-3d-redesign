@@ -1,0 +1,31 @@
+# Payments, payouts, and Pro activation
+
+- **Customer online payment:** `orders.paymentMethod = "upi"` creates a Razorpay order with `notes.purpose = "zipto_food_order"` and `notes.orderId`. The order stays hidden from restaurants and riders until `paymentStatus = "paid"`; `orderPayments.markPaid` calls `notifyZipto`. Payment is verified through `customer/payment_verify_POST` and the `/_api/payments/webhook` route (`payments/webhook_POST`). The webhook uses `RAZORPAY_WEBHOOK_SECRET` and deduplicates events in `payment_webhook_events`. `orderPayments.refundIfPaid` handles customer cancellation, restaurant rejection, and admin cancellation.
+- **Pro price:** proMonthlyFee is the base BEFORE GST. pro_order charges base + round(base × commissionGstBps/10000) (₹2,499 + ₹450 = ₹2,949). `subscription_payments.amount` = total charged (verify/webhook compare amount×100 to Razorpay); `base_amount` + `gst_amount` = amount (DB check). Pre-change rows: gst_amount 0 (GST-inclusive). settings_GET exposes proMonthlyGst/proMonthlyTotal/proGstPercent; admin finance taxSummary has proSubscriptionGst by paid month. Pending CA answers: see static/__dev/docs/ca-short-questions.md.
+- **Pro activation:** A paid `subscription_payments` row with `period_start IS NULL` awaits activation. `helpers/proSubscription.recordPaidPayment` activates it immediately only when `launchMode` is false and `app_settings.pro_billing_started_at` is set. When admin turns launch mode off, `activateAllPending` starts 30-day periods from go-live and emails merchants. `pro_order` blocks a second payment while activation is pending.
+- **Email prerequisite:** `helpers/sendZiptoEmail` has an `alwaysSend` option used by `helpers/emailOtp`. Sender is now live (noreply@mail.ziptofood.online); `alwaysSend` is a no-op. See email-workflows.md.
+- **Zipto Wallet:** `helpers/ziptoWallet` handles idempotent pending→success `creditTopup`, `payOrder` inside the `place_order` transaction with the `users` row locked `FOR UPDATE`, `refundOrder` through `orderPayments.refundIfPaid` when `paymentMethod = "wallet"` (partial unique index on `(order_id, type)`), and `adminAdjust` through `admin/action` `wallet_adjust`. Amounts are INTEGER whole rupees, not numeric. Top-up Razorpay notes use `purpose = "zipto_wallet_topup"` and `walletTxnId`; `processRazorpayWebhookEvent` provides webhook fallback. Wallet orders start with `paymentStatus = "paid"` and count as online paid for payouts, ledger, and finance (queries use `paymentMethod` in `["upi", "wallet"]`); the gateway fee estimate applies only to UPI. Limits are shared in `endpoints/wallet/summary_GET.schema` `WALLET_LIMITS`.
+- **Weekly payouts:** `helpers/createWeeklyPayouts` runs Friday at 00:30 IST. It includes online, paid, delivered orders placed before Friday 00:00 IST and creates `restaurant_payouts`, unique by `restaurant_id` and `payout_date`; it also calls `createRiderPayouts`. Payouts require admin approval before payment and stay `on_hold` without bank or UPI details. Admin records a UTR to mark them paid; automated transfers are not built. See `static/__dev/notes/pricing-ledger-payouts.md` for the approval workflow and ledger plan.
+- **Launch restrictions and terms:** Customer registration returns 403 while `launchMode` is true. Terms are at `/terms`, with `#pro-plan`, `#merchant-payouts`, and `#grievance` anchors.
+
+## Late/duplicate/old-order Razorpay payments (F1/F2)
+
+Razorpay does **not** copy order notes to payment entities. The webhook falls back to `GET /orders/{id}` notes through `helpers/razorpayOrderNotes`. Ignore unknown purposes: the Razorpay account may be shared. The configured webhook must target the Zipto Food endpoint `https://www.ziptofood.online/_api/payments/webhook` (or the apex domain equivalent), not the legacy Drivo URL.
+
+All captured payments go through `helpers/paymentReconciliation`. Its decision logic is in `helpers/paymentReconciliationDecision` and has a spec. Owner rules:
+
+- Late payment on a failed top-up → refund; never credit the wallet.
+- Payment on a superseded Razorpay order for a still-pending active food order → accept and switch `order.razorpayOrderId` to the old Razorpay order ID.
+- Order already paid with a different payment → refund the duplicate.
+- Cancelled or refunded order → refund the late payment.
+- Mismatches → create a `manual_review` row; the webhook returns 200.
+
+`payment_reconciliations` uses a unique `razorpay_payment_id` as its idempotency claim. Refund receipts use `zipto-recon-{id}`. Failed rows are retried on webhook redelivery. Reconciliation refunds are not posted to the order ledger. Verify endpoints must not capture authorized payments they would refund.
+
+Admin view: **Admin → Finance → Payment reconciliation → handled payments table**. There is no expiry job yet; any future expiry job must be built on top of this reconciliation flow.
+
+## Webhook claims & failed refunds (issues 3/4)
+
+- `payment_webhook_events` has `status` (`processing`/`done`/`failed`), `started_at`, `attempts`, and `last_error`. `helpers/webhookEventClaims` atomically claims events with `INSERT … ON CONFLICT DO UPDATE WHERE` failed or processing is stale (>16 min). Webhook responses: done → 200; fresh processing → 503 for Razorpay retry; failure → `markFailed` and 500. Rows are never deleted. Decision logic and spec: `helpers/webhookEventClaimDecision`.
+- `refund.failed` uses `helpers/refundFailures`; decision logic and spec: `helpers/refundEventDecision`. Complaint refunds go through `foodComplaints` first. Late/duplicate reconciliation refunds become `refund_failed` and require a manual refund in the Razorpay dashboard. For full-order refunds, restore `paymentStatus` to `paid`, clear `razorpayRefundId`, set `refundFailedAt`, `refundFailureReason`, and `failedRazorpayRefundId`, and reverse the ledger with `order:{id}:customer_refund_failed:{refundId}`. A later successful refund uses `order:{id}:customer_refund:{refundId}`. A processed event for a previously failed refund is a mismatch: email admins, return 200, and make no state change. Admin emails are deduplicated by `refund_failed:{refundId}:admin:{id}`.
+- Admin → Finance shows the top card **Refunds failed – action needed** from `finance_GET.refundFailures`. Admin action `retry_order_refund` calls `refundIfPaid` with receipt `zipto-refund-{id}-retry-{ts}`.

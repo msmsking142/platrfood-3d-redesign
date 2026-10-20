@@ -1,0 +1,205 @@
+.wrap {
+  display: grid;
+  gap: var(--card-gap);
+}
+
+.verificationCard,
+.onlineCard {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--spacing-4);
+  flex-wrap: wrap;
+}
+
+.verificationCard,
+.offline {
+  border: 1px solid #BFEBD8;
+  background: #E6F8F1;
+  color: #0B3B2C;
+}
+
+.online {
+  border-left: 4px solid #3EDC97;
+  background: var(--card);
+  color: #0B3B2C;
+}
+
+.verificationCard > svg {
+  color: var(--foreground);
+}
+
+.verificationCard > div,
+.onlineCard > div:first-child {
+  min-width: 0;
+  flex: 1 1 240px;
+}
+
+.verificationCard h2,
+.onlineCard h2,
+.activeCard h2 {
+  margin: 0;
+  color: var(--foreground);
+  font-family: var(--font-family-base);
+  font-size: var(--text-section-size);
+  font-weight: 600;
+  line-height: 1.25;
+}
+
+.verificationCard p,
+.onlineCard p,
+.activeCard p {
+  margin: var(--spacing-2) 0 0;
+  font-size: var(--text-body-size);
+  font-weight: 400;
+  line-height: 1.5;
+}
+
+.onlineSwitch {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-3);
+  padding: var(--spacing-3) var(--spacing-4);
+  border-radius: var(--radius-full);
+  background: var(--card);
+  box-shadow: var(--shadow);
+  font-size: var(--text-secondary-size);
+  font-weight: 600;
+}
+
+.eyebrow {
+  display: block;
+  margin-bottom: var(--spacing-2);
+  font-size: var(--text-caption-size);
+  font-weight: 600;
+  letter-spacing: 0.06em;
+}
+
+.onDuty {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-2);
+}
+
+.onDuty::before {
+  width: 0.5rem;
+  height: 0.5rem;
+  flex: none;
+  border-radius: var(--radius-full);
+  background: #3EDC97;
+  animation: dutyPulse 2s infinite;
+  content: "";
+}
+
+@keyframes dutyPulse {
+  50% { box-shadow: 0 0 0 0.35rem rgba(62, 219, 148, 0); }
+}
+
+.location {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-2);
+  padding: var(--spacing-3) var(--spacing-4);
+  border-radius: var(--radius);
+  background: var(--card);
+  box-shadow: var(--shadow);
+  font-size: var(--text-secondary-size);
+  font-weight: 500;
+}
+
+.location svg {
+  flex: none;
+}
+
+.locationSharing svg {
+  color: #0F9F6E;
+}
+
+.stats {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: var(--card-gap);
+}
+
+.stats .statCard {
+  border: 1px solid #DDEFE7;
+  background: var(--card);
+}
+
+.stats .earnedStat {
+  border: 1px solid #DDEFE7;
+}
+
+.activeCard {
+  display: grid;
+  gap: var(--card-gap);
+  padding: var(--card-padding);
+}
+
+.activeHead {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: var(--spacing-3);
+  flex-wrap: wrap;
+}
+
+.activeCard p {
+  margin: 0;
+  overflow-wrap: anywhere;
+}
+
+.activeCard strong {
+  color: var(--success);
+  font-size: var(--text-stat-size);
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+}
+
+.activeCard button {
+  justify-self: start;
+}
+
+.nextCard {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-3);
+  flex-wrap: wrap;
+}
+
+.nextCard p {
+  min-width: 0;
+  flex: 1 1 250px;
+  margin: 0;
+  font-size: var(--text-body-size);
+  font-weight: 400;
+}
+
+@media (max-width: 760px) {
+  .verificationCard,
+  .onlineCard,
+  .nextCard {
+    padding: var(--card-padding);
+  }
+
+  .stats {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .onDuty::before {
+    animation: none;
+  }
+}
+
+@media (max-width: 390px) {
+  .stats {
+    gap: var(--spacing-2);
+  }
+
+  .verificationCard > a,
+  .activeCard button {
+    width: 100%;
+  }
+}

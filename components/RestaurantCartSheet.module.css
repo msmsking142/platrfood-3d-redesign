@@ -1,0 +1,27 @@
+.mobile { display: none; }
+.bar { position: fixed; right: var(--spacing-3); bottom: calc(4.5rem + var(--safe-area-inset-bottom, 0px)); left: var(--spacing-3); z-index: 60; display: flex; min-width: 0; min-height: 3.5rem; align-items: center; justify-content: space-between; gap: var(--spacing-2); padding: var(--spacing-2) var(--spacing-4); border: 0; border-radius: var(--radius-full); background: var(--secondary); color: var(--card); box-shadow: var(--shadow-lg); font: inherit; font-size: var(--text-secondary-size); font-weight: 500; text-align: left; cursor: pointer; transition: transform var(--animation-duration-fast) var(--animation-easing); }
+.bar span { min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.bar strong { flex: none; color: var(--primary); font-weight: 500; }
+.bar:active { transform: scale(0.98); }
+.sheetContent { height: 100dvh; max-height: 100dvh; border-radius: var(--radius-lg) var(--radius-lg) 0 0; }
+.back { display: flex; flex: none; align-items: center; gap: var(--spacing-2); align-self: flex-start; margin: var(--spacing-3) var(--spacing-3) 0; padding: var(--spacing-2); border: 0; background: transparent; color: var(--foreground); font: inherit; font-size: var(--text-secondary-size); font-weight: 500; cursor: pointer; }
+.cartView { min-height: 0; flex: 1; }
+.screenReaderOnly { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+.back:focus-visible, .bar:focus-visible { outline: 3px solid var(--primary); outline-offset: 2px; }
+@media (max-width: 900px) { .mobile { display: contents; } }
+@media (prefers-reduced-motion: reduce) { .bar { transition: none; } }
+
+[class~="platr-dark"] .bar {
+  background: var(--primary);
+  color: var(--primary-foreground);
+  box-shadow: 0 0 1.5rem rgba(255, 196, 0, 0.25), var(--shadow-lg);
+}
+
+[class~="platr-dark"] .bar strong {
+  color: var(--primary-foreground);
+}
+
+[class~="platr-dark"] .sheetContent {
+  background: var(--card);
+  color: var(--card-foreground);
+}

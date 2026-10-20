@@ -1,0 +1,45 @@
+.logoWrap {
+  position: relative;
+  display: inline-flex;
+  flex: 0 0 auto;
+  line-height: 0;
+}
+.icon {
+  display: block;
+  flex-shrink: 0;
+  object-fit: contain;
+  object-position: center;
+  border-radius: 0;
+  overflow: visible;
+  box-shadow: none;
+}
+.darkLogo {
+  display: none;
+  object-fit: contain;
+  transform: scale(1.2);
+  transform-origin: center;
+}
+:global(.platr-dark) .defaultLogo,
+.lightTone .defaultLogo {
+  display: none;
+}
+:global(.platr-dark) .darkLogo,
+.lightTone .darkLogo {
+  display: block;
+}
+.tight .darkLogo {
+  transform: none;
+}
+.tight .trademark {
+  top: 0;
+  right: -0.55em;
+}
+.trademark {
+  position: absolute;
+  top: -0.12em;
+  right: -0.08em;
+  color: #65E6B5;
+  font: 700 0.42rem/1 Arial, sans-serif;
+  line-height: 1;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.35);
+}

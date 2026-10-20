@@ -1,0 +1,161 @@
+.wrap {
+  --merchant-yellow: #FFC400;
+  --merchant-ink: #1E2440;
+  --merchant-success: #10B981;
+  --merchant-alert: #E53935;
+  --merchant-ground: #F1F3F7;
+  --merchant-white: #fff;
+  display: flex;
+  flex-direction: column;
+  gap: var(--card-gap);
+  color: var(--merchant-ink);
+}
+
+.section { display: flex; flex-direction: column; gap: var(--spacing-4); }
+.heading { margin: 0; color: var(--merchant-ink); font-size: var(--text-section-size); font-weight: 600; }
+.desktopIntro { display: block; }
+.statusCard { display: flex; align-items: center; justify-content: space-between; gap: var(--spacing-4); }
+.statusCard strong { font-size: var(--text-title-size); font-weight: 500; }
+.statusCard p { margin: var(--spacing-1) 0 0; color: var(--muted-foreground); font-size: 0.875rem; }
+.statusRight { display: flex; align-items: center; gap: var(--spacing-3); }
+
+.stats, .actions, .navigationGrid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--card-gap); }
+.statCard, .navigationCard, .actionCard {
+  border: 1px solid #E3E6EE;
+  border-radius: var(--radius-md);
+  background: #FFFFFF;
+  box-shadow: var(--shadow);
+  color: var(--merchant-ink);
+  font-family: inherit;
+}
+.statCard {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--spacing-2);
+  min-width: 0;
+  padding: var(--card-padding);
+}
+.statIcon, .navIcon {
+  display: grid;
+  place-items: center;
+  border-radius: var(--radius-full);
+  background: #E6E9F4;
+  color: #1E2440;
+}
+.statIcon { width: 2.25rem; height: 2.25rem; }
+.navIcon { background: rgba(16, 185, 129, 0.12); color: #0F9F6E; }
+.statLabel { color: #5B6275; font-size: var(--text-secondary-size); font-weight: 400; }
+.statValue { font-size: var(--text-stat-size); font-weight: 600; line-height: 1.2; font-variant-numeric: tabular-nums; overflow-wrap: anywhere; }
+
+.urgentAlert {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-3);
+  width: 100%;
+  padding: var(--spacing-4);
+  border: 0;
+  border-radius: var(--radius-md);
+  background: #FFC400;
+  color: var(--merchant-ink);
+  box-shadow: var(--shadow);
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+}
+.urgentAlert strong { font-size: var(--text-section-size); font-weight: 600; }
+.urgentAlert span { padding: var(--spacing-3); border-radius: var(--radius-sm); background: #FFFFFF; color: #111111; font-weight: 600; }
+.clearAlert { padding: var(--spacing-4); border-radius: var(--radius-md); background: #E6F8F1; color: #0F7A55; font-weight: 500; }
+
+.navigationCard {
+  position: relative;
+  display: flex;
+  min-height: 9rem;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--spacing-3);
+  padding: var(--spacing-4);
+  font-size: 0.9rem;
+  font-weight: 500;
+  text-align: center;
+  cursor: pointer;
+}
+.navIcon { width: 3rem; height: 3rem; }
+.badge {
+  position: absolute;
+  top: var(--spacing-2);
+  right: var(--spacing-2);
+  min-width: 1.4rem;
+  padding: var(--spacing-1);
+  border-radius: var(--radius-full);
+  background: var(--merchant-alert);
+  color: var(--merchant-white);
+  font-size: 0.7rem;
+}
+.actionCard {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--spacing-2);
+  min-height: 5rem;
+  padding: var(--spacing-3);
+  font-size: 0.9rem;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.actionCard:disabled { opacity: 0.55; cursor: not-allowed; }
+.navigationCard:focus-visible, .actionCard:focus-visible, .urgentAlert:focus-visible, .planLink:focus-visible {
+  outline: 3px solid var(--merchant-ink);
+  outline-offset: 2px;
+}
+
+.lowerGrid { display: grid; grid-template-columns: 1.5fr 1fr; gap: var(--card-gap); }
+.attentionCard, .planCard { border: 0; border-radius: var(--radius-md); box-shadow: var(--shadow); }
+.attentionCard, .planCard { background: #FFFFFF; border: 1px solid #E3E6EE; box-shadow: var(--shadow); }
+.attentionRow { display: flex; align-items: center; gap: var(--spacing-3); padding-top: var(--spacing-4); }
+.attentionRow > span { flex: 1; font-size: 0.875rem; }
+.attentionRow > svg { flex-shrink: 0; }
+.planCard { display: flex; flex-direction: column; gap: var(--spacing-2); }
+.planCard > span { font-size: var(--text-caption-size); font-weight: 500; text-transform: uppercase; }
+.planCard h2, .planCard p { margin: 0; }
+.planCard p { font-size: 0.875rem; }
+.planLink { display: inline-flex; align-items: center; gap: var(--spacing-2); align-self: flex-start; margin-top: auto; padding: var(--spacing-2) 0; border: 0; background: transparent; color: var(--merchant-ink); font: inherit; font-weight: 500; cursor: pointer; }
+.pricingSkeleton { height: 2rem; }
+
+@media (max-width: 760px) {
+  .desktopIntro { display: none; }
+  .wrap { gap: var(--spacing-4); }
+  .heading { font-size: var(--text-section-size); font-weight: 600; }
+  .stats, .actions, .navigationGrid { gap: var(--spacing-2); }
+  .actions { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .statCard { padding: var(--spacing-3); }
+  .statIcon { width: 1.75rem; height: 1.75rem; }
+  .statIcon svg { width: 1rem; height: 1rem; }
+  .statLabel { font-size: 0.68rem; line-height: 1.3; }
+  .statValue { font-size: var(--text-stat-size); font-weight: 600; }
+  .navigationCard { min-height: 5.75rem; padding: var(--spacing-2); font-size: var(--text-caption-size); font-weight: 500; line-height: 1.25; }
+  .navIcon { width: 2.25rem; height: 2.25rem; }
+  .navIcon svg { width: 1.125rem; height: 1.125rem; }
+  .actionCard { min-height: 3.5rem; flex-direction: row; text-align: center; font-size: var(--text-caption-size); font-weight: 500; }
+  .actionCard svg { width: 1.125rem; height: 1.125rem; flex-shrink: 0; }
+  .urgentAlert { gap: var(--spacing-2); }
+  .urgentAlert strong { font-size: 0.85rem; }
+  .urgentAlert span { font-size: 0.8rem; }
+  .clearAlert { font-size: 0.8rem; }
+  .lowerGrid { grid-template-columns: 1fr; }
+  .attentionCard, .planCard { font-size: 0.8rem; }
+  .attentionRow > span { font-size: 0.8rem; }
+  .planCard h2 { font-size: var(--text-section-size); font-weight: 600; }
+  .planCard p { font-size: 0.8rem; }
+}
+
+@media (max-width: 760px) {
+  .section { gap: var(--card-gap); }
+  .navigationCard, .statCard, .actionCard { min-width: 0; }
+  .navigationCard > span:not(.navIcon):not(.badge) { max-width: 100%; overflow: hidden; text-overflow: ellipsis; }
+}
+@media (max-width: 380px) {
+  .attentionRow { flex-wrap: wrap; }
+}

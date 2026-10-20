@@ -1,0 +1,120 @@
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-3);
+  width: 100%;
+  font-family: var(--font-family-base);
+  color: var(--foreground);
+}
+
+.heading {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-2);
+}
+
+.title {
+  margin: 0;
+  font-size: var(--text-section-size);
+  line-height: var(--text-section-line);
+  font-weight: 600;
+}
+
+.sentText {
+  margin: 0;
+  color: var(--muted-foreground);
+  font-size: var(--text-secondary-size);
+  line-height: var(--text-secondary-line);
+  overflow-wrap: anywhere;
+}
+
+.sentText strong {
+  color: var(--foreground);
+  font-weight: 600;
+}
+
+.digitGroup {
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  gap: var(--spacing-1);
+  width: 100%;
+}
+
+.digitInput {
+  box-sizing: border-box;
+  width: 100%;
+  height: 3rem;
+  padding: 0;
+  border: 2px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--card);
+  color: var(--foreground);
+  font: 600 var(--text-section-size) / 1 var(--font-family-base);
+  text-align: center;
+  font-variant-numeric: tabular-nums;
+  outline: none;
+  box-shadow: var(--shadow);
+}
+
+.digitInput:focus-visible {
+  border-color: var(--foreground);
+  box-shadow: var(--shadow-focus);
+}
+
+.digitInput[aria-invalid="true"] {
+  border-color: var(--error);
+}
+
+.digitInput:disabled {
+  background: var(--muted);
+  cursor: not-allowed;
+}
+
+.error {
+  padding: var(--spacing-3);
+  border-radius: var(--radius);
+  background: color-mix(in srgb, var(--error) 9%, var(--card));
+  color: var(--error);
+  font-size: var(--text-secondary-size);
+  line-height: var(--text-secondary-line);
+}
+
+.errorHint {
+  display: block;
+  margin-top: var(--spacing-1);
+  font-weight: 600;
+}
+
+.verifyButton {
+  width: 100%;
+  height: 3rem;
+  font-weight: 600;
+}
+
+.resendSection {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--spacing-2);
+}
+
+.spamHint {
+  margin: 0;
+  color: var(--muted-foreground);
+  font-size: 0.875rem;
+  line-height: 1.5;
+}
+
+.resendButton {
+  min-height: 2.75rem;
+  padding: 0 var(--spacing-3);
+  color: var(--foreground);
+  font-weight: 500;
+}
+
+.backButton {
+  align-self: flex-start;
+  min-height: 2.75rem;
+  padding: 0 var(--spacing-3);
+  color: var(--foreground);
+}

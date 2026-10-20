@@ -1,0 +1,247 @@
+.wrap {
+  display: flex;
+  flex-direction: column;
+  gap: var(--card-gap);
+  min-width: 0;
+  font-family: var(--font-family-base);
+}
+
+
+.academyActions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: var(--spacing-4);
+  margin-top: var(--spacing-6);
+}
+
+.academyActions p,
+.support {
+  margin: 0;
+  color: var(--muted-foreground);
+  font-size: 0.875rem;
+}
+
+
+.support a,
+.submitArea a {
+  color: var(--foreground);
+  font-weight: 700;
+  text-underline-offset: 3px;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-4);
+}
+
+.detailsCard {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-4);
+}
+
+.cardHeading {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--spacing-3);
+}
+
+.cardHeading > svg {
+  flex: 0 0 auto;
+  color: var(--foreground);
+}
+
+.cardHeading h2 {
+  margin: 0;
+  color: var(--foreground);
+  font-size: var(--text-section-size);
+  font-weight: 600;
+}
+
+.cardHeading p {
+  margin: var(--spacing-1) 0 0;
+  color: var(--muted-foreground);
+  font-size: 0.875rem;
+}
+
+.fields {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--card-gap);
+}
+
+.wideField {
+  grid-column: 1 / -1;
+}
+
+.error {
+  display: block;
+  margin: var(--spacing-1) 0 0;
+  color: var(--error);
+  font-size: 0.8rem;
+  font-weight: 500;
+}
+
+.uploadPanel {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-3);
+  min-height: 72px;
+  padding: var(--spacing-4);
+  border: 1px dashed var(--border);
+  border-radius: var(--radius-md);
+  background: var(--background);
+  color: var(--foreground);
+  font-size: 0.875rem;
+  font-weight: 600;
+}
+
+.uploadPanel:focus-within {
+  outline: 3px solid var(--primary);
+  outline-offset: 2px;
+}
+
+.uploadPanel > svg {
+  flex: 0 0 auto;
+  color: var(--success);
+}
+
+.fileInput {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.fileInput:disabled {
+  cursor: wait;
+}
+
+.dateInput {
+  width: 100%;
+  min-height: 2.5rem;
+  padding: var(--spacing-2) var(--spacing-3);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--card);
+  color: var(--foreground);
+  font: inherit;
+}
+
+.dateInput:focus-visible {
+  outline: 3px solid var(--primary);
+  outline-offset: 2px;
+}
+
+.plans {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--spacing-3);
+}
+
+.planOption {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--spacing-3);
+  min-width: 0;
+  padding: var(--spacing-4);
+  border: 2px solid var(--border);
+  border-radius: var(--radius-md);
+  background: var(--card);
+  cursor: pointer;
+}
+
+.selectedPlan {
+  border-color: var(--foreground);
+  background: var(--gold-soft);
+}
+
+.planOption input {
+  flex: 0 0 auto;
+  margin-top: 4px;
+  accent-color: var(--foreground);
+}
+
+.planOption:focus-within {
+  outline: 3px solid var(--primary);
+  outline-offset: 2px;
+}
+
+.planCopy {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-1);
+  color: var(--foreground);
+  font-size: 0.875rem;
+}
+
+.planCopy strong {
+  font-size: var(--text-section-size);
+  font-weight: 600;
+}
+
+.planPrice {
+  font-size: var(--text-stat-size);
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+  line-height: 1.25;
+}
+
+.planPrice small {
+  font-size: 0.8rem;
+  font-weight: 500;
+}
+
+.feeNotice {
+  padding: var(--card-padding);
+  border-radius: var(--radius-md);
+  background: var(--card);
+}
+
+.feeNotice p {
+  margin: var(--spacing-2) 0 0;
+  color: var(--foreground);
+}
+
+.planNote {
+  margin: 0;
+  color: var(--muted-foreground);
+  font-size: 0.8rem;
+}
+
+.submitArea {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--spacing-2);
+  padding: var(--spacing-2) 0 var(--spacing-6);
+}
+
+.submitArea p {
+  margin: 0;
+  color: var(--muted-foreground);
+  font-size: 0.875rem;
+}
+
+.submitArea .error {
+  color: var(--error);
+}
+
+@media (max-width: 700px) {
+
+  .fields,
+  .plans {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .wideField {
+    grid-column: auto;
+  }
+}
+

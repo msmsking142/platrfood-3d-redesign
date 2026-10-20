@@ -1,0 +1,44 @@
+.panel {
+  display: grid;
+  gap: var(--card-gap);
+  min-width: 0;
+  padding: var(--card-padding);
+  border-radius: var(--radius-md);
+  background: var(--card);
+  box-shadow: var(--shadow);
+}
+.heading h3 { margin: 0; font-size: var(--text-section-size); font-weight: 600; }
+.heading p { margin: var(--spacing-1) 0 0; color: var(--muted-foreground); font-size: var(--text-secondary-size); }
+.form { display: grid; gap: var(--spacing-4); }
+.group {
+  display: grid;
+  gap: var(--card-gap);
+  min-width: 0;
+  margin: 0;
+  padding: var(--card-padding);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+}
+.group legend { padding: 0 var(--spacing-2); font-size: var(--text-section-size); font-weight: 600; }
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 12rem), 1fr));
+  gap: var(--card-gap);
+}
+.field { display: grid; align-content: start; gap: var(--spacing-2); font-size: var(--text-body-size); font-weight: 600; }
+.toggle {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: var(--spacing-4);
+}
+.toggle label { font-size: var(--text-body-size); font-weight: 600; cursor: pointer; }
+.toggle p { margin: var(--spacing-1) 0 0; color: var(--muted-foreground); font-size: var(--text-secondary-size); }
+.panel button { font-size: var(--text-secondary-size); font-weight: 500; }
+.save { justify-self: start; }
+.error { margin: 0; color: var(--error); overflow-wrap: anywhere; }
+@media (max-width: 600px) {
+  .panel { padding: var(--card-padding); }
+  .group { padding: var(--card-padding); }
+  .save { width: 100%; }
+}

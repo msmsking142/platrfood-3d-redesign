@@ -1,0 +1,4 @@
+.dialog { width: 36rem; }
+.form { display: grid; gap: var(--spacing-3); }
+.footer { flex-wrap: wrap; }
+@media (max-width: 450px) { .footer button { flex: 1; } }

@@ -1,0 +1,18 @@
+# Email workflows
+
+- USER DECISION: support@platrfood.co.in is the user's REAL mailbox. All support alerts (new form tickets, customer replies) go ONLY there (replyTo = customer), never to admin Gmail (ziptosupport@gmail.com). Customer acks + CRM replies use replyTo support@platrfood.co.in. For delivery to the real mailbox, Floot inbound receiving on platrfood.co.in must be disabled / its MX must point at the user's mail provider (otherwise mail loops into handleInboundEmail and is dropped as automated).
+
+
+- Sender: `helpers/sendZiptoEmail`, from `Zipto Food <noreply@mail.ziptofood.online>`; default `replyTo` is `support@mail.ziptofood.online`. Pass a `dedupeKey` for every event email: its unique `email_notifications` row causes duplicates to be skipped.
+- Order emails: `helpers/orderEmails.sendForOrder` runs from `notifyZipto` after realtime publish. Keys: `order:{id}:{role}:{event}`. Skip pending UPI orders until `markPaid`. Do not email customers for `preparing` or `ready`. On `accepted`, email rider offers to at most 15 online, approved riders in the town. `orderEmails.renderZiptoEmail` is the shared branded template.
+- Complaint emails: `helpers/foodComplaints`; keys begin `complaint:{id}:`.
+- Limit: 1,000 emails per day per stage.
+
+## Support CRM change plan
+
+- Keep `support_tickets` and `support_ticket_messages`; `legacy_contact_messages` remains an unused migrated table. Reuse `supportTickets`, `supportTicketNotifications`, `supportEmailParsing`, and `supportCategories`. Keep the `support_tickets.source` CHECK constraint limited to `form` and `email`.
+- Make Admin → **Support CRM** the only way for admins to answer tickets. Update the admin tab and `components/AdminSupportInbox` to open a ticket at `/admin?tab=support&ticket=ID`; retain `pages/support` and `components/SupportTicketForm` for users. Ensure ticket selection from the URL opens the specified ticket.
+- Update the admin-send path so customer-facing replies are sent only after an authenticated CRM action. Resolve the recipient from the linked user's **current registered email**, falling back to `ticket.email` when there is no linked registered email. Send from `Zipto Support <support@mail.ziptofood.online>` with `replyTo: ticket-{id}@mail.ziptofood.online`, so customer replies return to the ticket thread. Never expose `ziptosupport@gmail.com` to customers.
+- Update new-ticket admin alerts to use `replyTo: noreply@mail.ziptofood.online` and include a clear “Don't reply to this email; answer in Support CRM” note and the ticket's CRM link. The admin Gmail address (`ziptosupport@gmail.com`) remains for admin login and alerts only.
+- Update `onEmailReceived("handleInboundEmail")`, registered in `endpoints/admin/support_tickets_GET`: continue matching tickets through the ticket reply-to address or `[Zipto #id]` subject tag, recording customer replies from the ticket customer as messages and creating unmatched customer emails as tickets with source `email`. Never treat an email from the admin address as a CRM reply or relay it to a customer. Instead, send the admin a guidance notice linking to `/admin?tab=support&ticket=ID` when a ticket is identifiable. Give that notice a stable per-inbound-message dedupe key so retries do not send it twice; for unmatched admin replies, send guidance without creating a customer ticket. Do not include customer-facing recipients on guidance notices.
+- Review support notification call sites and tests to verify recipient fallback, sender and reply-to headers, CRM-only admin replies, inbound customer threading, deduped admin guidance, and that admin Gmail cannot appear in customer-facing email content or headers.

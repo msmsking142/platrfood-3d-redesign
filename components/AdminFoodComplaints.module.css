@@ -1,0 +1,274 @@
+.section {
+  display: grid;
+  gap: var(--card-gap);
+  min-width: 0;
+  margin: var(--spacing-4) 0;
+  padding: var(--card-padding);
+  border-radius: var(--radius-md);
+  background: var(--card);
+  box-shadow: var(--shadow);
+  color: var(--foreground);
+  font-family: var(--font-family-base);
+  font-size: var(--text-body-size);
+}
+
+.section button {
+  font-size: var(--text-secondary-size);
+  font-weight: 500;
+}
+
+.header,
+.cardHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: var(--spacing-3);
+}
+
+.header h2 {
+  margin: 0;
+  font-size: var(--text-section-size);
+  font-weight: 600;
+}
+
+.eyebrow {
+  margin: 0 0 var(--spacing-1);
+  font-size: var(--text-caption-size);
+  font-weight: 600;
+  letter-spacing: 0.08em;
+}
+
+.settings {
+  padding: var(--card-padding);
+  border-radius: var(--radius-md);
+  background: var(--gold-soft);
+}
+
+.settings h3 {
+  margin: 0 0 var(--card-gap);
+  font-size: var(--text-section-size);
+  font-weight: 600;
+}
+
+.settingsFields {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr)) auto;
+  align-items: end;
+  gap: var(--spacing-3);
+}
+
+.settingsFields label,
+.decisionForm label {
+  display: grid;
+  gap: var(--spacing-2);
+  min-width: 0;
+  font-size: var(--text-body-size);
+  font-weight: 600;
+}
+
+.filters {
+  max-width: 100%;
+  overflow-x: auto;
+}
+
+.list {
+  display: grid;
+  gap: var(--card-gap);
+  min-width: 0;
+}
+
+.card {
+  display: grid;
+  gap: var(--card-gap);
+  min-width: 0;
+  padding: var(--card-padding);
+  border-radius: var(--radius-md);
+  background: var(--card);
+  box-shadow: var(--shadow);
+}
+
+.cardHeader h3 {
+  margin: 0;
+  font-size: var(--text-section-size);
+  font-weight: 600;
+}
+
+.cardHeader p,
+.cardHeader small {
+  display: block;
+  margin: var(--spacing-1) 0 0;
+  overflow-wrap: anywhere;
+}
+
+.cardHeader small {
+  color: var(--muted-foreground);
+  font-size: var(--text-secondary-size);
+}
+
+.report {
+  padding: var(--card-padding);
+  border-radius: var(--radius);
+  background: var(--surface);
+}
+
+.report p {
+  margin: var(--spacing-2) 0 0;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+
+.photos {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-2);
+  margin-top: var(--spacing-3);
+}
+
+.photos a {
+  display: block;
+  width: 5rem;
+  height: 5rem;
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+}
+
+.photos a:focus-visible {
+  outline: 2px solid var(--foreground);
+  outline-offset: 2px;
+}
+
+.photos img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.orderDetails {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 0.8fr);
+  gap: var(--spacing-6);
+}
+
+.orderDetails ul {
+  display: grid;
+  gap: var(--spacing-2);
+  margin: var(--spacing-2) 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.orderDetails li,
+.totals span {
+  display: flex;
+  justify-content: space-between;
+  gap: var(--spacing-3);
+}
+
+.orderDetails li span:first-child {
+  overflow-wrap: anywhere;
+}
+
+.totals {
+  display: grid;
+  align-content: start;
+  gap: var(--spacing-2);
+  font-size: var(--text-body-size);
+}
+
+.totals strong {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-2);
+}
+
+.outcome {
+  display: grid;
+  justify-items: start;
+  gap: var(--spacing-2);
+}
+
+.outcome p {
+  margin: 0;
+  overflow-wrap: anywhere;
+}
+
+.decisionForm {
+  display: grid;
+  gap: var(--spacing-4);
+}
+
+.formError {
+  margin: var(--spacing-2) 0 0;
+  color: var(--error);
+  font-size: var(--text-secondary-size);
+  overflow-wrap: anywhere;
+}
+
+.empty,
+.refreshing {
+  margin: 0;
+  color: var(--muted-foreground);
+}
+
+.errorPanel {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: var(--spacing-3);
+  padding: var(--spacing-4);
+  border-radius: var(--radius);
+  background: var(--surface);
+}
+
+.errorPanel p {
+  margin: 0;
+}
+
+.loading {
+  display: grid;
+  gap: var(--spacing-4);
+}
+
+.skeletonHeading {
+  width: 12rem;
+  height: 2rem;
+}
+
+.skeletonRow {
+  height: 5rem;
+}
+
+.skeletonCard {
+  height: 12rem;
+}
+
+@media (max-width: 760px) {
+  .settingsFields {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .orderDetails {
+    grid-template-columns: 1fr;
+    gap: var(--spacing-4);
+  }
+}
+
+@media (max-width: 480px) {
+  .section {
+    padding: var(--card-padding);
+  }
+
+  .settingsFields {
+    grid-template-columns: 1fr;
+  }
+
+  .actions > * {
+    width: 100%;
+  }
+}

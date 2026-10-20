@@ -1,0 +1,155 @@
+.page {
+  max-width: 45rem;
+  margin: var(--spacing-6) auto;
+  padding: 0 var(--spacing-3) var(--spacing-6);
+  color: var(--foreground);
+}
+
+.backLink {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-2);
+  margin-bottom: var(--spacing-4);
+  color: var(--foreground);
+  text-decoration: none;
+}
+
+.backLink:hover {
+  text-decoration: underline;
+}
+
+.header,
+.card {
+  border-radius: var(--radius-md);
+  padding: var(--card-padding);
+  box-shadow: var(--shadow-md);
+}
+
+.header {
+  background: var(--primary);
+  color: var(--primary-foreground);
+  margin-bottom: var(--spacing-4);
+}
+
+.header h1 {
+  margin: var(--spacing-2) 0;
+  font-size: var(--text-page-size);
+  font-weight: 700;
+}
+
+.card h2 {
+  font-size: var(--text-section-size);
+  font-weight: 600;
+}
+
+.header p {
+  margin-bottom: 0;
+}
+
+.card {
+  background: var(--card);
+  color: var(--card-foreground);
+  margin-bottom: var(--spacing-4);
+}
+
+.card h2 {
+  margin-top: 0;
+}
+
+.skeletons {
+  display: grid;
+  gap: var(--spacing-4);
+  padding: var(--spacing-4) 0;
+}
+
+.muted,
+.messageMeta {
+  color: var(--muted-foreground);
+  font-size: 0.875rem;
+}
+
+.ticketList {
+  display: grid;
+  gap: var(--card-gap);
+}
+
+.ticket {
+  background: var(--surface);
+  border-radius: var(--radius);
+  padding: var(--spacing-3);
+}
+
+.ticketSummary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--spacing-3);
+  cursor: pointer;
+  min-height: 3rem;
+}
+
+.ticketTitle {
+  display: grid;
+  gap: var(--spacing-1);
+  min-width: 0;
+  overflow-wrap: anywhere;
+  font-size: var(--text-title-size);
+  font-weight: 500;
+}
+
+.ticketTitle strong {
+  font-weight: 500;
+}
+
+.messages {
+  display: grid;
+  gap: var(--spacing-3);
+  margin-top: var(--spacing-4);
+}
+
+.message {
+  background: var(--card);
+  border-radius: var(--radius-sm);
+  padding: var(--spacing-3);
+}
+
+.messageBody {
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  margin-bottom: 0;
+}
+
+[class~="platr-dark"] .header {
+  background: var(--card);
+  color: var(--foreground);
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.08), var(--shadow-md);
+}
+
+[class~="platr-dark"] .header > svg {
+  color: var(--primary);
+}
+
+[class~="platr-dark"] .header p {
+  color: var(--muted-foreground);
+}
+
+[class~="platr-dark"] .card {
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.08), var(--shadow-md);
+}
+
+[class~="platr-dark"] .ticket {
+  background: var(--surface);
+}
+
+[class~="platr-dark"] .ticketSummary:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: var(--spacing-1);
+}
+
+[class~="platr-dark"] .message {
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.06);
+}
+
+[class~="platr-dark"] .card [role="alert"] {
+  color: #fca5a5;
+}

@@ -1,0 +1,321 @@
+.wrap {
+  display: grid;
+  min-width: 0;
+  gap: var(--card-gap);
+}
+
+.columns {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: var(--card-gap);
+}
+
+.videoCard,
+.stepsCard,
+.uploadCard {
+  min-width: 0;
+}
+
+.videoCard h2,
+.stepsCard h2,
+.uploadCard h2,
+.banner h2 {
+  margin: 0 0 var(--spacing-3);
+  font-family: var(--font-family-base);
+  font-size: var(--text-section-size);
+  font-weight: 600;
+}
+
+.videoCard p,
+.uploadCard > div:first-child p {
+  margin: 0;
+  color: var(--muted-foreground);
+  font-size: var(--text-body-size);
+  font-weight: 400;
+  line-height: 1.55;
+}
+
+.videoCard {
+  display: grid;
+  align-content: start;
+  min-height: 250px;
+  background: var(--surface);
+  padding: var(--card-padding);
+}
+
+.steps {
+  display: grid;
+  gap: var(--spacing-3);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.steps li {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-3);
+  color: var(--muted-foreground);
+  font-size: var(--text-body-size);
+  font-weight: 500;
+}
+
+.steps .done {
+  color: var(--foreground);
+}
+
+.stepIcon {
+  display: grid;
+  width: 32px;
+  height: 32px;
+  flex: none;
+  place-items: center;
+  border-radius: var(--radius-full);
+  background: var(--muted);
+  font-size: var(--text-secondary-size);
+  font-weight: 600;
+}
+
+.done .stepIcon {
+  background: var(--success);
+  color: var(--success-foreground);
+}
+
+.banner {
+  display: flex;
+  min-width: 0;
+  align-items: center;
+  gap: var(--spacing-4);
+  flex-wrap: wrap;
+  background: var(--gold-soft);
+}
+
+.approved {
+  background: color-mix(in srgb, var(--success) 12%, var(--card));
+}
+
+.rejected {
+  background: color-mix(in srgb, var(--error) 9%, var(--card));
+}
+
+.bannerIcon {
+  display: grid;
+  width: 44px;
+  height: 44px;
+  flex: none;
+  place-items: center;
+  border-radius: var(--radius-full);
+  background: var(--card);
+}
+
+.rejected .bannerIcon {
+  color: var(--error);
+}
+
+.approved .bannerIcon {
+  color: var(--success);
+}
+
+.bannerCopy {
+  min-width: 0;
+  flex: 1 1 220px;
+}
+
+.bannerCopy h2 {
+  margin: var(--spacing-2) 0 0;
+}
+
+.bannerCopy p {
+  margin: var(--spacing-1) 0 0;
+  overflow-wrap: anywhere;
+}
+
+.bannerCopy a {
+  color: var(--foreground);
+  font-weight: 700;
+}
+
+.feeCard {
+  display: grid;
+  justify-items: start;
+  gap: var(--spacing-3);
+}
+
+.feeCard h2,
+.feeCard p {
+  margin: 0;
+}
+
+.feeCard p {
+  color: var(--muted-foreground);
+}
+
+.feeBreakdown {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: var(--spacing-2) var(--spacing-6);
+  width: 100%;
+  max-width: 30rem;
+}
+
+.uploadCard {
+  display: grid;
+  gap: var(--card-gap);
+  padding: var(--card-padding);
+}
+
+.uploadGrid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--card-gap);
+}
+
+.document {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--spacing-3);
+  min-width: 0;
+  padding: var(--card-padding);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  background: var(--background);
+}
+
+.document h3,
+.document p {
+  margin: 0;
+}
+
+.rcField {
+  display: grid;
+  width: 100%;
+  gap: var(--spacing-1);
+  color: var(--foreground);
+  font-size: var(--text-secondary-size);
+  font-weight: 600;
+}
+
+.rcField input {
+  box-sizing: border-box;
+  width: 100%;
+  min-height: 44px;
+  padding: var(--spacing-2) var(--spacing-3);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  background: var(--card);
+  color: var(--foreground);
+  font: inherit;
+  font-weight: 400;
+}
+
+.rcField select {
+  box-sizing: border-box;
+  width: 100%;
+  min-height: 44px;
+  padding: var(--spacing-2) var(--spacing-3);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  background: var(--card);
+  color: var(--foreground);
+  font: inherit;
+  font-weight: 400;
+}
+
+.document h3 {
+  font-size: var(--text-title-size);
+  font-weight: 500;
+}
+
+.document p {
+  color: var(--muted-foreground);
+  font-size: var(--text-secondary-size);
+  line-height: 1.5;
+}
+
+.preview {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-2);
+  max-width: 100%;
+  color: var(--foreground);
+  font-size: var(--text-secondary-size);
+  font-weight: 600;
+  overflow-wrap: anywhere;
+}
+
+.preview img {
+  width: 76px;
+  height: 76px;
+  border-radius: var(--radius);
+  object-fit: cover;
+}
+
+.fileLabel {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--spacing-2);
+  min-height: 44px;
+  padding: var(--spacing-2) var(--spacing-4);
+  border: 1px dashed var(--foreground);
+  border-radius: var(--radius-full);
+  background: var(--card);
+  cursor: pointer;
+  font-size: var(--text-button-sm-size);
+  font-weight: 500;
+  text-align: center;
+}
+
+.fileLabel:focus-within {
+  outline: 3px solid var(--primary);
+  outline-offset: 2px;
+}
+
+.fileLabel input {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.fileLabel:has(input:disabled) {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.error {
+  margin: 0;
+  color: var(--error);
+  font-size: var(--text-secondary-size);
+  font-weight: 600;
+}
+
+.submitButton {
+  justify-self: start;
+}
+
+@media (max-width: 750px) {
+  .columns,
+  .uploadGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .videoCard {
+    min-height: 120px;
+  }
+
+  .stepsCard,
+  .banner {
+    padding: var(--card-padding);
+  }
+}
+
+@media (max-width: 390px) {
+  .submitButton,
+  .banner > button {
+    width: 100%;
+  }
+}

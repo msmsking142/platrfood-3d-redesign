@@ -1,0 +1,108 @@
+.heading {
+  margin: 0 0 var(--spacing-3);
+  font-size: var(--text-section-size);
+  font-weight: 600;
+}
+
+.explainer {
+  margin: 0 0 var(--spacing-4);
+  color: var(--muted-foreground);
+  font-size: 0.875rem;
+  line-height: 1.6;
+}
+
+.tableWrap {
+  overflow-x: auto;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.875rem;
+}
+
+.table th {
+  padding: var(--spacing-2) var(--spacing-3);
+  border-bottom: 1px solid var(--border);
+  color: var(--muted-foreground);
+  text-align: left;
+  white-space: nowrap;
+}
+
+.table td {
+  padding: var(--spacing-3);
+  border-bottom: 1px solid var(--border);
+  vertical-align: top;
+}
+
+.amount {
+  color: var(--success);
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.reason {
+  min-width: 12rem;
+  overflow-wrap: anywhere;
+}
+
+.reason p {
+  margin: var(--spacing-2) 0 0;
+}
+
+.form {
+  display: grid;
+  gap: var(--spacing-2);
+}
+
+.form label {
+  font-weight: 600;
+}
+
+.form small {
+  color: var(--muted-foreground);
+}
+
+.actions {
+  display: flex;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+  gap: var(--spacing-2);
+  margin-top: var(--spacing-4);
+}
+
+@media (max-width: 760px) {
+  .table,
+  .table tbody,
+  .table tr,
+  .table td {
+    display: block;
+  }
+
+  .table thead {
+    display: none;
+  }
+
+  .table tr {
+    padding: var(--spacing-3) 0;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .table td {
+    display: grid;
+    grid-template-columns: minmax(5.5rem, 35%) minmax(0, 1fr);
+    gap: var(--spacing-2);
+    padding: var(--spacing-1) 0;
+    border: 0;
+  }
+
+  .table td::before {
+    content: attr(data-label);
+    color: var(--muted-foreground);
+    font-weight: 600;
+  }
+
+  .reason {
+    min-width: 0;
+  }
+}

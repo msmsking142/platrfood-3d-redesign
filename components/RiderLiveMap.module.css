@@ -1,0 +1,194 @@
+.root {
+  width: 100%;
+  min-width: 0;
+  font-family: var(--font-family-base);
+}
+
+.mapShell {
+  height: 220px;
+  overflow: hidden;
+  border-radius: var(--radius-md);
+  background: var(--surface);
+  box-shadow: var(--shadow);
+}
+
+.map {
+  width: 100%;
+  height: 100%;
+}
+
+.hiddenMap {
+  display: none;
+}
+
+.placeholder {
+  display: flex;
+  height: 100%;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--spacing-3);
+  box-sizing: border-box;
+  padding: var(--spacing-4);
+  color: var(--muted-foreground);
+  text-align: center;
+}
+
+.placeholder strong {
+  color: var(--foreground);
+  font-size: 0.875rem;
+  font-weight: 600;
+}
+
+.waitingIcon {
+  color: var(--foreground);
+  animation: breathe 2s ease-in-out infinite;
+}
+
+.staleWarning {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--spacing-3);
+  margin-top: var(--spacing-3);
+  padding: var(--spacing-4);
+  border-radius: var(--radius);
+  background: color-mix(in srgb, var(--warning) 18%, var(--card));
+  color: var(--foreground);
+}
+
+.staleWarningTitle {
+  display: block;
+  font-size: 0.875rem;
+  font-weight: 700;
+}
+
+.staleWarningBody {
+  margin: var(--spacing-1) 0 0;
+  font-size: 0.8125rem;
+  line-height: 1.5;
+}
+
+.details {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: var(--spacing-2) var(--spacing-4);
+  padding-top: var(--spacing-3);
+}
+
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-2);
+  min-height: 2rem;
+  padding: 0 var(--spacing-3);
+  border-radius: var(--radius-full);
+  background: var(--gold-soft);
+  color: var(--foreground);
+  font-size: 0.75rem;
+  font-weight: 700;
+}
+
+.dot {
+  width: 0.5rem;
+  height: 0.5rem;
+  border-radius: var(--radius-full);
+  background: var(--success);
+}
+
+.stale {
+  background: color-mix(in srgb, var(--warning) 18%, var(--card));
+}
+
+.stale .dot {
+  background: var(--warning);
+}
+
+.distance {
+  color: var(--foreground);
+  font-size: 0.875rem;
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+}
+
+.riderPin,
+.restaurantPin,
+.destinationPin {
+  border: 0;
+  background: transparent;
+}
+
+.markerBody {
+  display: grid;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  border-radius: var(--radius-full);
+  box-shadow: var(--shadow-md);
+}
+
+.riderPin .markerBody {
+  position: relative;
+  background: var(--primary);
+  color: var(--primary-foreground);
+}
+
+.riderPin .markerBody::after {
+  position: absolute;
+  inset: -5px;
+  border: 2px solid var(--primary);
+  border-radius: var(--radius-full);
+  content: "";
+  animation: pulse 2s ease-out infinite;
+}
+
+.veryStale .markerBody {
+  filter: grayscale(1);
+  opacity: 0.65;
+}
+
+.veryStale .markerBody::after {
+  display: none;
+}
+
+.restaurantPin .markerBody {
+  background: var(--secondary);
+  color: var(--primary);
+}
+
+.destinationPin .markerBody {
+  background: var(--card);
+  color: var(--foreground);
+  border: 2px solid var(--foreground);
+  box-sizing: border-box;
+}
+
+.map :global(.leaflet-control-attribution) {
+  font-family: var(--font-family-base);
+  font-size: 0.625rem;
+}
+
+@keyframes pulse {
+  from {
+    transform: scale(0.85);
+    opacity: 0.85;
+  }
+  to {
+    transform: scale(1.45);
+    opacity: 0;
+  }
+}
+
+@keyframes breathe {
+  50% {
+    transform: translateY(-4px);
+    opacity: 0.6;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .waitingIcon,
+  .riderPin .markerBody::after {
+    animation: none;
+  }
+}

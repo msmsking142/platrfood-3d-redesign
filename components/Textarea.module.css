@@ -1,0 +1,41 @@
+@layer base {
+  .textarea {
+    font-size: var(--text-body-size);
+    line-height: 1.45;
+    padding: var(--spacing-2) var(--spacing-3);
+    border-radius: var(--radius-sm);
+    width: 100%;
+    min-height: 6rem;
+    resize: vertical;
+  }
+
+  .textarea::placeholder {
+    color: var(--muted-foreground);
+  }
+
+  @supports (-webkit-touch-callout: none) {
+    .textarea {
+      font-size: 1rem;
+    }
+  }
+
+  .noResize {
+    resize: none;
+  }
+
+  .clear {
+    background-color: transparent;
+    border: none;
+    padding: 0;
+    box-shadow: none;
+    border-radius: 0;
+  }
+
+  .clear:hover,
+  .clear:focus {
+    background-color: transparent;
+    border: none;
+    box-shadow: none;
+  }
+
+}

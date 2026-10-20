@@ -1,0 +1,7 @@
+{
+  "createWeeklyPayouts": {
+    "enabled": true,
+    "schedule": "30 0 * * 5",
+    "timezone": "Asia/Kolkata"
+  }
+}

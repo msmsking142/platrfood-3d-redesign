@@ -1,0 +1,40 @@
+.panel {
+  display: grid;
+  gap: var(--card-gap);
+  min-width: 0;
+  padding: var(--card-padding);
+  border-radius: var(--radius-md);
+  background: var(--card);
+  box-shadow: var(--shadow);
+}
+.heading h3 { margin: 0; font-size: var(--text-section-size); font-weight: 600; }
+.heading p, .empty { margin: var(--spacing-1) 0 0; color: var(--muted-foreground); font-size: var(--text-secondary-size); }
+.scroll { width: 100%; min-width: 0; overflow-x: auto; }
+.table { width: 100%; min-width: 650px; border-collapse: collapse; text-align: left; }
+.table th, .table td {
+  padding: var(--spacing-3);
+  border-bottom: 1px solid var(--border);
+  vertical-align: middle;
+  font-size: var(--text-body-size);
+}
+.table thead th { background: var(--surface); font-weight: 700; }
+.table tbody th { font-weight: 700; }
+.numbers { font-variant-numeric: tabular-nums; white-space: nowrap; }
+.paused { color: var(--error); font-weight: 600; }
+.paused small {
+  display: block;
+  max-width: 18rem;
+  color: var(--muted-foreground);
+  font-weight: 400;
+  overflow-wrap: anywhere;
+}
+.form, .form label { display: grid; gap: var(--spacing-2); }
+.form { gap: var(--spacing-4); }
+.form label { font-size: var(--text-body-size); font-weight: 600; }
+.panel button { font-size: var(--text-secondary-size); font-weight: 500; }
+.actions { display: flex; justify-content: flex-end; flex-wrap: wrap; gap: var(--spacing-2); }
+.error { margin: 0; color: var(--error); overflow-wrap: anywhere; }
+@media (max-width: 600px) {
+  .panel { padding: var(--card-padding); }
+  .actions > * { flex: 1; }
+}

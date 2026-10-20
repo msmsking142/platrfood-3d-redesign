@@ -1,0 +1,74 @@
+.bill {
+  border-top: 1px solid var(--border);
+  padding-top: var(--spacing-3);
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-2);
+  font-size: var(--text-body-size);
+  font-weight: var(--text-body-weight);
+  color: var(--muted-foreground);
+}
+
+.row,
+.total {
+  display: flex;
+  min-width: 0;
+  justify-content: space-between;
+  gap: var(--spacing-2);
+}
+
+.row > span:first-child {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+
+.row > span:last-child {
+  flex: none;
+  font-variant-numeric: tabular-nums;
+}
+
+.note {
+  display: block;
+  font-size: var(--text-caption-size);
+}
+
+.finalSection {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-2);
+}
+
+.trust {
+  margin: 0;
+  font-size: var(--text-caption-size);
+  line-height: 1.5;
+}
+
+.total {
+  border-top: 1px dashed var(--border);
+  padding-top: var(--spacing-2);
+  color: var(--foreground);
+  font-size: 1rem;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+}
+
+.error {
+  margin: 0;
+  color: var(--error);
+  font-size: var(--text-body-size);
+}
+
+[class~="platr-dark"] .bill {
+  border-top-color: rgba(255, 255, 255, 0.1);
+  color: var(--muted-foreground);
+}
+
+[class~="platr-dark"] .total {
+  border-top-color: var(--primary);
+  color: var(--foreground);
+}
+
+[class~="platr-dark"] .error {
+  color: #fca5a5;
+}

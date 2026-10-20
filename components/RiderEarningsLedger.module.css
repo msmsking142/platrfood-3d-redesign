@@ -1,0 +1,61 @@
+.wrap {
+  display: grid;
+  min-width: 0;
+  gap: var(--card-gap);
+}
+
+.heading {
+  margin: 0;
+  font-family: var(--font-family-base);
+  font-size: var(--text-section-size);
+  font-weight: 600;
+}
+
+.stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 11rem), 1fr));
+  gap: var(--card-gap);
+}
+
+.tableScroll {
+  overflow-x: auto;
+  margin-top: var(--spacing-4);
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+  font-size: var(--text-body-size);
+  white-space: nowrap;
+}
+
+.table th,
+.table td {
+  padding: var(--spacing-3);
+  border-bottom: 1px solid var(--border);
+}
+
+.table thead th {
+  color: var(--muted-foreground);
+  font-size: var(--text-secondary-size);
+}
+
+.table .negative {
+  color: var(--error);
+  font-weight: 600;
+}
+
+.table .note {
+  min-width: 10rem;
+  max-width: 18rem;
+  white-space: normal;
+  overflow-wrap: anywhere;
+}
+
+.empty {
+  margin: var(--card-gap) 0 0;
+  color: var(--muted-foreground);
+  font-size: var(--text-body-size);
+  font-weight: 400;
+}

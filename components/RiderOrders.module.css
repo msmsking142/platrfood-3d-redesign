@@ -1,0 +1,233 @@
+.wrap {
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+  gap: var(--card-gap);
+}
+
+.availableList,
+.activeList {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 340px), 1fr));
+  gap: var(--card-gap);
+}
+
+.orderCard,
+.activeCard {
+  display: grid;
+  align-content: start;
+  gap: var(--card-gap);
+  min-width: 0;
+  padding: var(--card-padding);
+}
+
+.orderCard {
+  background: #E6F8F1;
+  border-color: #BFEBD8;
+  color: #0B3B2C;
+}
+
+.cardHead {
+  display: flex;
+  min-width: 0;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: var(--spacing-3);
+  flex-wrap: wrap;
+}
+
+.cardHead > div {
+  min-width: 0;
+}
+
+.cardHead h2,
+.cardHead h3 {
+  margin: 2px 0 0;
+  overflow: hidden;
+  font-family: var(--font-family-base);
+  font-size: var(--text-section-size);
+  font-weight: 600;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.kicker {
+  color: var(--muted-foreground);
+  font-size: var(--text-secondary-size);
+  font-weight: 600;
+}
+
+.time {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  margin-top: var(--spacing-1);
+  color: var(--muted-foreground);
+  font-size: var(--text-secondary-size);
+}
+
+.payout {
+  display: grid;
+  min-width: 0;
+  justify-items: end;
+  font-size: var(--text-caption-size);
+}
+
+.payout strong {
+  color: #0F9F6E;
+  font-size: var(--text-stat-size);
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+}
+
+.payBreakdown {
+  margin: 0;
+  color: var(--foreground);
+  font-size: var(--text-secondary-size);
+  font-weight: 400;
+  line-height: 1.5;
+  overflow-wrap: anywhere;
+}
+
+.payBreakdown span {
+  color: var(--muted-foreground);
+}
+
+.route {
+  display: grid;
+  gap: var(--spacing-2);
+  padding: var(--spacing-3);
+  border-radius: var(--radius);
+  background: #F0FAF6;
+}
+
+.route p {
+  display: grid;
+  grid-template-columns: 55px minmax(0, 1fr);
+  gap: var(--spacing-2);
+  margin: 0;
+  font-size: var(--text-body-size);
+  overflow-wrap: anywhere;
+}
+
+.route b {
+  color: var(--muted-foreground);
+}
+
+.items,
+.payment {
+  margin: 0;
+  font-size: var(--text-body-size);
+  font-weight: 400;
+}
+
+.payment {
+  font-weight: 600;
+}
+
+.actions {
+  display: flex;
+  min-width: 0;
+  align-items: center;
+  gap: var(--spacing-2);
+  flex-wrap: wrap;
+}
+
+.actions > * {
+  min-width: 0;
+  min-height: 44px;
+}
+
+.sectionHeading {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--spacing-2);
+  margin-top: var(--card-gap);
+}
+
+.sectionHeading h2 {
+  min-width: 0;
+  margin: 0;
+  font-size: var(--text-section-size);
+  font-weight: 600;
+}
+
+.sectionHeading span {
+  color: var(--muted-foreground);
+  font-size: var(--text-secondary-size);
+  white-space: nowrap;
+}
+
+.stepper {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 4px;
+  margin: 0;
+  padding: var(--spacing-3) 0;
+  border-block: 1px solid var(--border);
+  list-style: none;
+}
+
+.stepper li {
+  display: grid;
+  justify-items: center;
+  gap: 6px;
+  color: var(--muted-foreground);
+  font-size: var(--text-caption-size);
+  font-weight: 600;
+  text-align: center;
+}
+
+.stepper .stepDone {
+  color: var(--foreground);
+  font-weight: 600;
+}
+
+.stepDot {
+  width: 12px;
+  height: 12px;
+  border-radius: var(--radius-full);
+  background: var(--border);
+}
+
+.stepDone .stepDot {
+  background: var(--primary);
+  box-shadow: 0 0 0 3px var(--gold-soft);
+}
+
+.deliveryDetails {
+  display: grid;
+  gap: var(--spacing-1);
+}
+
+.deliveryDetails p {
+  margin: 0;
+  font-size: var(--text-body-size);
+  font-weight: 400;
+  overflow-wrap: anywhere;
+}
+
+.deliveryDetails b {
+  margin-right: var(--spacing-2);
+}
+
+.locationNote {
+  margin: 0;
+  color: var(--muted-foreground);
+  font-size: var(--text-secondary-size);
+  line-height: 1.5;
+}
+
+@media (max-width: 480px) {
+  .actions > * {
+    flex: 1 1 100%;
+  }
+
+  .stepper li {
+    min-width: 0;
+    overflow: hidden;
+    font-size: var(--text-caption-size);
+    text-overflow: ellipsis;
+  }
+}

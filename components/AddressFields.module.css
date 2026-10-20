@@ -1,0 +1,8 @@
+.fields { display: grid; gap: var(--spacing-2); }
+.twoColumns { display: grid; grid-template-columns: 1fr 1fr; gap: var(--spacing-3); }
+.location { display: flex; align-items: center; flex-wrap: wrap; gap: var(--spacing-3); margin-bottom: var(--spacing-3); font-size: .8rem; }
+.location span[role="alert"] { color: var(--error); }
+.location span[role="status"] { color: var(--success); font-weight: 700; }
+.defaultChoice { display: flex; align-items: center; gap: var(--spacing-3); min-height: 44px; }
+.defaultChoice label { cursor: pointer; }
+@media (max-width: 450px) { .twoColumns { grid-template-columns: 1fr; gap: 0; } }

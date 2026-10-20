@@ -1,0 +1,80 @@
+.panel {
+  display: grid;
+  gap: var(--card-gap);
+  min-width: 0;
+  padding: var(--card-padding);
+  border-radius: var(--radius-md);
+  background: var(--card);
+  box-shadow: var(--shadow);
+}
+.heading h3 { margin: 0; font-size: var(--text-section-size); font-weight: 600; }
+.heading p, .cardTop p { margin: var(--spacing-1) 0 0; color: var(--muted-foreground); font-size: var(--text-secondary-size); }
+.panel [role="tablist"] { max-width: 100%; overflow-x: auto; }
+.list { display: grid; gap: var(--card-gap); min-width: 0; }
+.card {
+  display: grid;
+  justify-items: start;
+  gap: var(--card-gap);
+  padding: var(--card-padding);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow);
+  width: 100%;
+  min-width: 0;
+}
+.cardTop {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: var(--spacing-3);
+  width: 100%;
+}
+.cardTop h4 { margin: 0; font-size: var(--text-title-size); font-weight: 600; overflow-wrap: anywhere; }
+.details {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: var(--card-gap);
+  width: 100%;
+  padding: var(--card-padding);
+  background: var(--surface);
+  border-radius: var(--radius);
+}
+.details div { display: grid; gap: var(--spacing-1); min-width: 0; }
+.details span { color: var(--muted-foreground); font-size: var(--text-secondary-size); }
+.details strong { font-variant-numeric: tabular-nums; overflow-wrap: anywhere; }
+.explanation { display: grid; gap: var(--spacing-1); width: 100%; }
+.explanation p { margin: 0; font-size: var(--text-body-size); white-space: pre-wrap; overflow-wrap: anywhere; }
+.panel button { font-size: var(--text-secondary-size); font-weight: 500; }
+.actions { display: flex; flex-wrap: wrap; gap: var(--spacing-2); }
+.timelineTrigger {
+  padding: var(--spacing-2) 0;
+  font: inherit;
+  font-size: var(--text-secondary-size);
+  font-weight: 500;
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
+}
+.timelineTrigger:focus-visible { outline: 2px solid var(--foreground); outline-offset: 2px; }
+.timeline {
+  display: grid;
+  gap: var(--spacing-2);
+  margin: var(--spacing-2) 0;
+  padding-left: var(--spacing-6);
+}
+.timeline li { padding-left: var(--spacing-2); font-size: var(--text-body-size); }
+.timeline time, .timeline small { display: block; color: var(--muted-foreground); font-size: var(--text-secondary-size); }
+.timeline strong { display: block; }
+.timeline small { overflow-wrap: anywhere; }
+.empty { margin: 0; color: var(--muted-foreground); }
+.error { margin: 0; color: var(--error); overflow-wrap: anywhere; }
+.decisionForm, .decisionForm label { display: grid; gap: var(--spacing-2); }
+.decisionForm { gap: var(--spacing-4); }
+.decisionForm label { font-size: var(--text-body-size); font-weight: 600; }
+@media (max-width: 700px) {
+  .panel { padding: var(--card-padding); }
+  .details { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 430px) {
+  .actions { width: 100%; }
+  .actions > * { flex: 1; }
+}

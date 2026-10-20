@@ -1,0 +1,17 @@
+.card {
+  padding: var(--spacing-4);
+  border-radius: var(--radius-md);
+  background: var(--card);
+  box-shadow: var(--shadow);
+}
+.card h3 { margin: 0; font-size: var(--text-section-size); font-weight: 600; }
+.card p { margin: var(--spacing-2) 0 0; color: var(--muted-foreground); font-size: 0.8rem; }
+.chart { height: 15rem; aspect-ratio: unset; }
+@media (max-width: 760px) {
+  .card h3 { font-size: var(--text-section-size); font-weight: 600; }
+  .chart svg text { font-size: 0.625rem; }
+}
+@media (max-width: 480px) {
+  .card { padding: var(--card-padding); }
+  .chart { height: 12rem; }
+}

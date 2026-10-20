@@ -1,0 +1,58 @@
+.root {
+  display: grid;
+  gap: 1.25rem;
+  min-width: 0;
+  color: var(--foreground);
+}
+
+.hero {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(15rem, 0.75fr);
+  gap: var(--spacing-4);
+  align-items: stretch;
+}
+
+.hero h2 { margin: 0 0 var(--spacing-2); font-size: var(--text-section-size); }
+.hero p { margin: 0; color: var(--muted-foreground); }
+.eyebrow { font-size: var(--text-secondary-size); letter-spacing: .06em; font-weight: 600; margin-bottom: var(--spacing-2) !important; }
+
+.total {
+  display: grid;
+  gap: var(--spacing-2);
+  align-content: center;
+  padding: var(--card-padding);
+  border-radius: var(--radius);
+  background: #fff4c2;
+  border: 1px solid #f1d86e;
+}
+.total small, .total span { color: #5d4a00; }
+.total strong { font-size: clamp(1.7rem, 4vw, 2.3rem); font-variant-numeric: tabular-nums; color: #111; }
+
+.notice {
+  display: grid;
+  gap: var(--spacing-1);
+  padding: var(--card-padding);
+  border: 1px solid var(--border);
+  border-left: 4px solid #d39a00;
+  border-radius: var(--radius);
+  background: var(--surface);
+}
+.notice span { color: var(--muted-foreground); }
+
+.cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(12rem, 1fr)); gap: var(--card-gap); }
+.card { display: grid; gap: var(--spacing-2); padding: var(--card-padding); background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); box-shadow: var(--shadow); }
+.card span, .card small { color: var(--muted-foreground); }
+.card strong { font-size: var(--text-stat-size); font-weight: var(--text-stat-weight); font-variant-numeric: tabular-nums; }
+
+.explanation { padding: var(--card-padding); border-radius: var(--radius); background: var(--surface); }
+.explanation h3 { margin-top: 0; }
+.explanation p:last-child { margin-bottom: 0; }
+.tableScroll { min-width: 0; overflow-x: auto; }
+.table { width: 100%; border-collapse: collapse; text-align: left; }
+.table th, .table td { padding: var(--spacing-3); border-bottom: 1px solid var(--border); white-space: nowrap; }
+.table td { font-variant-numeric: tabular-nums; }
+.footnote { color: var(--muted-foreground); font-size: var(--text-secondary-size); }
+
+@media (max-width: 650px) {
+  .hero { grid-template-columns: 1fr; }
+}

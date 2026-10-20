@@ -1,0 +1,145 @@
+.root {
+  padding: var(--spacing-6);
+  background: var(--card);
+  color: var(--card-foreground);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow);
+}
+
+.header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: var(--spacing-4);
+}
+
+.header h3 {
+  margin: 0;
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+
+.header p,
+.prompt,
+.checkedAt {
+  margin: var(--spacing-2) 0 0;
+  color: var(--muted-foreground);
+  font-size: 0.875rem;
+}
+
+.results {
+  display: grid;
+  gap: var(--spacing-6);
+  margin-top: var(--spacing-4);
+}
+
+.group h4 {
+  margin: 0 0 var(--spacing-3);
+  font-size: 1rem;
+  font-weight: 700;
+}
+
+.empty {
+  margin: 0;
+  padding: var(--spacing-4);
+  border-radius: var(--radius);
+  background: var(--surface);
+  color: var(--muted-foreground);
+}
+
+.tableScroll {
+  max-width: 100%;
+  overflow-x: auto;
+}
+
+.tableScroll:focus-visible {
+  outline: 3px solid var(--primary);
+  outline-offset: 2px;
+}
+
+.table {
+  width: 100%;
+  min-width: 42rem;
+  border-collapse: collapse;
+  text-align: left;
+  font-size: 0.875rem;
+}
+
+.table th,
+.table td {
+  padding: var(--spacing-3);
+  border-bottom: 1px solid var(--border);
+  vertical-align: top;
+}
+
+.table thead th {
+  background: var(--surface);
+  font-weight: 700;
+}
+
+.amount {
+  white-space: nowrap;
+  font-variant-numeric: tabular-nums;
+  font-weight: 700;
+}
+
+.orderId,
+.paymentId {
+  overflow-wrap: anywhere;
+  font-family: var(--font-family-monospace);
+  font-size: 0.8125rem;
+}
+
+.result {
+  display: grid;
+  justify-items: start;
+  gap: var(--spacing-2);
+  min-width: 12rem;
+}
+
+.detail {
+  color: var(--muted-foreground);
+  font-size: 0.8125rem;
+}
+
+.payments {
+  max-width: 20rem;
+  color: var(--foreground);
+}
+
+.payments summary {
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.payments ul {
+  margin: var(--spacing-2) 0 0;
+  padding-left: var(--spacing-4);
+  overflow-wrap: anywhere;
+}
+
+.payments li + li {
+  margin-top: var(--spacing-2);
+}
+
+.loading {
+  display: grid;
+  gap: var(--spacing-4);
+  margin-top: var(--spacing-6);
+}
+
+.error {
+  margin: var(--spacing-4) 0 0;
+  color: var(--error);
+}
+
+@media (max-width: 480px) {
+  .root {
+    padding: var(--spacing-4);
+  }
+
+  .header button {
+    width: 100%;
+  }
+}

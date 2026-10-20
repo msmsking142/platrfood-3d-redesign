@@ -1,0 +1,22 @@
+.wrap { display: flex; flex-direction: column; gap: var(--card-gap); min-width: 0; }
+.grid { display: grid; grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr); gap: var(--card-gap); align-items: start; }
+.side { display: flex; flex-direction: column; gap: var(--card-gap); min-width: 0; }
+.h3 { margin: 0 0 var(--spacing-3); font-family: var(--font-family-display); font-size: var(--text-section-size); font-weight: 600; display: flex; align-items: center; gap: var(--spacing-2); }
+
+.form { display: flex; flex-direction: column; gap: var(--spacing-3); align-items: stretch; }
+.form > button { align-self: flex-start; }
+.locked { display: flex; flex-direction: column; gap: var(--spacing-1); background: var(--muted); border-radius: var(--radius); padding: var(--spacing-3); font-size: var(--text-body-size); overflow-wrap: anywhere; }
+.locked small { color: var(--muted-foreground); margin-top: 4px; }
+.error { margin: 0; color: #b42318; font-size: 0.85rem; }
+.line { display: flex; gap: 8px; align-items: flex-start; margin: 0 0 var(--spacing-2); font-size: 0.9rem; }
+.line svg { color: var(--primary); flex-shrink: 0; margin-top: 2px; }
+.mapLink { display: inline-flex; align-items: center; gap: var(--spacing-2); margin-top: var(--spacing-3); color: var(--foreground); font-weight: 700; text-decoration: none; }
+.muted { color: var(--muted-foreground); font-size: 0.85rem; margin: 0 0 var(--spacing-3); }
+.photoHelp { margin: 0 0 var(--spacing-3); color: var(--muted-foreground); font-size: 0.85rem; line-height: 1.5; }
+.photoRow { display: flex; flex-wrap: wrap; gap: var(--spacing-4); margin-bottom: var(--spacing-3); }
+.photoGroup { display: flex; flex-direction: column; gap: var(--spacing-2); font-size: 0.85rem; font-weight: 600; }
+.photoPreview, .photoPlaceholder { width: 7.5rem; height: 7.5rem; border-radius: var(--radius-md); }
+.photoPreview { object-fit: cover; }
+.photoPlaceholder { display: grid; place-items: center; padding: var(--spacing-2); text-align: center; background: var(--muted); color: var(--muted-foreground); font-size: 0.8rem; }
+.photoRejected { color: var(--error); font-size: 0.85rem; }
+@media (max-width: 860px) { .grid { grid-template-columns: minmax(0, 1fr); } }

@@ -1,0 +1,48 @@
+.root {
+  margin-bottom: var(--spacing-6);
+  padding: var(--spacing-6);
+  background: color-mix(in srgb, var(--error) 8%, var(--card));
+  color: var(--card-foreground);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-md);
+}
+
+.title {
+  margin: 0;
+  color: var(--error);
+  font-size: 1.25rem;
+}
+
+.intro {
+  margin: var(--spacing-2) 0 var(--spacing-4);
+}
+
+.list {
+  display: grid;
+  gap: var(--spacing-3);
+}
+
+.item {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: var(--spacing-4);
+  padding: var(--spacing-4);
+  background: var(--card);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+
+.details {
+  display: grid;
+  gap: var(--spacing-1);
+  min-width: 0;
+  overflow-wrap: anywhere;
+  font-size: 0.875rem;
+}
+
+.instruction {
+  margin-top: var(--spacing-2);
+  color: var(--error);
+}

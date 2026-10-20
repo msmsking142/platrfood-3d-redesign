@@ -1,0 +1,57 @@
+.root {
+  min-width: 0;
+  color: var(--foreground);
+  font-size: var(--text-body-size);
+}
+
+.root h2,
+.root h3 {
+  font-size: var(--text-section-size);
+  font-weight: 600;
+}
+
+.root button {
+  font-size: var(--text-secondary-size);
+  font-weight: 500;
+}
+
+.providers {
+  background: var(--surface);
+  border-radius: var(--radius);
+  padding: var(--card-padding);
+  margin-bottom: var(--spacing-6);
+}
+
+.badge {
+  display: inline-block;
+  background: var(--warning);
+  color: var(--warning-foreground);
+  border-radius: var(--radius);
+  padding: var(--spacing-2) var(--spacing-3);
+}
+
+.tableScroll {
+  min-width: 0;
+  overflow-x: auto;
+  margin-bottom: var(--spacing-6);
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+}
+
+.table th,
+.table td {
+  padding: var(--spacing-3);
+  border-bottom: 1px solid var(--border);
+  vertical-align: top;
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-2);
+  min-width: 10rem;
+}

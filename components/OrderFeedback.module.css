@@ -1,0 +1,233 @@
+.root {
+  display: grid;
+  gap: var(--card-gap);
+  font-family: var(--font-family-base);
+  color: var(--foreground);
+}
+
+.ratingBlock {
+  display: grid;
+  justify-items: start;
+  gap: var(--spacing-3);
+}
+
+.ratingBlock h3 {
+  margin: 0;
+  font-size: var(--text-section-size);
+  font-weight: 600;
+}
+
+.stars {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-1);
+}
+
+.starButton {
+  display: grid;
+  place-items: center;
+  width: 2.75rem;
+  height: 2.75rem;
+  padding: 0;
+  border: 0;
+  border-radius: var(--radius-full);
+  background: transparent;
+  cursor: pointer;
+}
+
+.starButton:focus-visible,
+.removePhoto:focus-visible {
+  outline: 2px solid var(--foreground);
+  outline-offset: 2px;
+}
+
+.starButton:disabled {
+  cursor: not-allowed;
+}
+
+.starFilled {
+  width: 1.5rem;
+  height: 1.5rem;
+  color: var(--primary);
+  fill: currentColor;
+  stroke: var(--foreground);
+}
+
+.starEmpty {
+  width: 1.5rem;
+  height: 1.5rem;
+  color: var(--muted-foreground);
+}
+
+.comment {
+  margin: 0;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+
+.field {
+  display: grid;
+  gap: var(--spacing-2);
+  width: 100%;
+  font-size: var(--text-body-size);
+  font-weight: 600;
+}
+
+.field small {
+  color: var(--muted-foreground);
+  font-weight: 400;
+}
+
+.ratingBlock .field {
+  max-width: 32rem;
+}
+
+.statusBlock {
+  padding: var(--spacing-4);
+  border-radius: var(--radius-md);
+  background: var(--surface);
+}
+
+.statusBlock strong {
+  font-weight: 600;
+}
+
+.statusBlock p {
+  margin: var(--spacing-2) 0 0;
+  overflow-wrap: anywhere;
+}
+
+.reportButton {
+  justify-self: start;
+  padding-inline: var(--spacing-3);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.dialog {
+  font-family: var(--font-family-base);
+}
+
+.reportForm {
+  display: grid;
+  gap: var(--spacing-4);
+}
+
+.info {
+  display: grid;
+  gap: var(--spacing-2);
+  padding: var(--card-padding);
+  border-radius: var(--radius);
+  background: var(--gold-soft);
+  font-size: 0.875rem;
+  line-height: 1.5;
+}
+
+.fileInput {
+  width: 100%;
+  max-width: 100%;
+  font: inherit;
+}
+
+.uploading {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-2);
+  margin: 0;
+}
+
+.photos {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-3);
+}
+
+.photo {
+  position: relative;
+  width: 5.5rem;
+  height: 5.5rem;
+}
+
+.photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: var(--radius);
+}
+
+.removePhoto {
+  position: absolute;
+  top: var(--spacing-1);
+  right: var(--spacing-1);
+  display: grid;
+  place-items: center;
+  width: 2rem;
+  height: 2rem;
+  border: 0;
+  border-radius: var(--radius-full);
+  background: var(--secondary);
+  color: var(--secondary-foreground);
+  cursor: pointer;
+}
+
+.error {
+  margin: 0;
+  color: var(--error);
+  font-size: 0.875rem;
+}
+
+.actions {
+  display: flex;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+  gap: var(--spacing-2);
+}
+
+:global(.platr-dark) .root,
+:global(.platr-dark) .ratingBlock h3 {
+  color: var(--foreground);
+}
+
+:global(.platr-dark) .starFilled {
+  color: var(--primary);
+  stroke: var(--foreground);
+}
+
+:global(.platr-dark) .starEmpty,
+:global(.platr-dark) .field small {
+  color: var(--muted-foreground);
+}
+
+:global(.platr-dark) .statusBlock {
+  border: 1px solid rgba(255, 255, 255, 0.09);
+  background: var(--surface);
+  box-shadow: var(--shadow);
+}
+
+:global(.platr-dark) .info {
+  background: rgba(255, 196, 0, 0.12);
+  color: #ffd54f;
+}
+
+:global(.platr-dark) .reportButton {
+  color: var(--mint);
+}
+
+:global(.platr-dark) .removePhoto {
+  background: var(--secondary);
+  color: var(--mint);
+}
+
+:global(.platr-dark) .error {
+  color: #fca5a5;
+}
+
+@media (max-width: 390px) {
+  .actions {
+    justify-content: stretch;
+  }
+
+  .actions > * {
+    flex: 1;
+  }
+}

@@ -1,0 +1,73 @@
+.root {
+  color: var(--foreground);
+}
+
+.list {
+  display: grid;
+  gap: var(--spacing-3);
+}
+
+.area {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: var(--spacing-4);
+  background: var(--surface);
+  padding: var(--spacing-4);
+  border-radius: var(--radius);
+}
+
+.area p {
+  margin-bottom: 0;
+  color: var(--muted-foreground);
+}
+
+.actions,
+.slab {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: var(--spacing-2);
+}
+
+.form {
+  margin-top: var(--spacing-8);
+  display: grid;
+  gap: var(--spacing-4);
+}
+
+.field {
+  display: grid;
+  gap: var(--spacing-2);
+  font-weight: 600;
+  max-width: 20rem;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(12rem, 1fr));
+  gap: var(--spacing-4);
+}
+
+.switchRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: var(--spacing-4);
+  max-width: 20rem;
+}
+
+.slabs {
+  display: grid;
+  gap: var(--spacing-3);
+  justify-items: start;
+}
+
+.slab {
+  align-items: end;
+}
+
+.slab .field {
+  width: 9rem;
+}

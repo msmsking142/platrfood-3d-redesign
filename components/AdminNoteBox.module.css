@@ -1,0 +1,33 @@
+.box {
+  display: grid;
+  grid-template-columns: minmax(220px, 1fr) minmax(260px, 2fr) auto;
+  gap: 10px;
+  align-items: end;
+  background: #fff;
+  border: 1px solid #eee6d1;
+  border-radius: 12px;
+  padding: 12px;
+  margin: 10px 0;
+}
+
+.field {
+  display: grid;
+  min-width: 0;
+  gap: 5px;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.select {
+  min-height: 40px;
+  width: 100%;
+  border: 1px solid #d1d5db;
+  border-radius: 9px;
+  padding: 8px 10px;
+  background: white;
+  color: #111;
+}
+
+@media (max-width: 700px) {
+  .box { grid-template-columns: minmax(0, 1fr); }
+}
